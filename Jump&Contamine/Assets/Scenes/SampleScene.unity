@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1575206237}
-  offset: {x: 0, y: 4, z: -10}
+  offset: {x: 0, y: 4, z: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -422,5 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05813b9620a64300b655af2aa44c028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanciaLados: 2.25
-  distanciaAltura: 2
+  player: {fileID: 1575206237}
+  distanciaLados: 2.75
+  distanciaAltura: 2.5

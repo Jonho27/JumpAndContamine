@@ -5,47 +5,70 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
 
-
-    private Vector2 position;
+    public GameObject player;
+    private Vector3 position;
     public float distanciaLados;
     public float distanciaAltura;
+    private bool keyHit = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (transform.position.x > -1.8) {
-                position = new Vector2(transform.position.x - distanciaLados * 50 * Time.deltaTime, transform.position.y + distanciaAltura * 50 * Time.deltaTime);
-                transform.position = position;
-            }
-            
-        }
+        
 
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (transform.position.x < 2)
+      
+        
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                position = new Vector2(transform.position.x + distanciaLados * 50 * Time.deltaTime, transform.position.y + distanciaAltura * 50 * Time.deltaTime);
-                transform.position = position;
+                keyHit = true;
+                if (transform.position.x > -0.5)
+                {
+                    position = new Vector3(player.transform.position.x - distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
+
+
+                }
+
+            }
+
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                keyHit = true;
+                if (transform.position.x < 0.5)
+                {
+                    position = new Vector3(player.transform.position.x + distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
+
+                }
+
+            }
+
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                keyHit = true;
+                position = new Vector3(player.transform.position.x, player.transform.position.y + distanciaAltura, player.transform.position.z);
+
+            }
+        
+        
+
+        if (keyHit)
+        {
+
+             
+            
+
+            player.transform.position = Vector3.Lerp(player.transform.position, position, 0.1f);
+            if(player.transform.position == position)
+            {
+                keyHit = false;
             }
             
-        }
-
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            position = new Vector2(transform.position.x, transform.position.y + distanciaAltura * 50 * Time.deltaTime);
-            transform.position = position;
         }
 
         

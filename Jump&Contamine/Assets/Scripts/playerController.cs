@@ -64,10 +64,10 @@ public class playerController : MonoBehaviour
             {
                 keyHit = false;
 
-                if(onPlattform == false)
+                /*if(onPlattform == false)
                 {
                     caida = true;
-                }
+                }*/
             }
             
         }
@@ -88,12 +88,25 @@ public class playerController : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (caida)
+        if (collider.gameObject.tag == "Plataforma")
         {
-            caida = false;
+            if (caida)
+            {
+                caida = false;
+            }
         }
+
+        if (collider.gameObject.tag == "Vacio")
+        {
+            if (!caida)
+            {
+                caida = true;
+                keyHit = false;
+            }
+        }
+
     }
 
     public void OnTriggerExit2D(Collider2D collider)

@@ -12,8 +12,11 @@ public class playerController : MonoBehaviour
     public bool keyHit = false;
     public bool onPlattform = false;
     public bool caida = false;
+    public bool propulsado = false;
     private float speed = 10f;
     private Vector2 fall = new Vector2(0, -1);
+    private Vector2 up = new Vector2(0, 1);
+    private float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +29,7 @@ public class playerController : MonoBehaviour
     void Update()
     {
                 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && caida == false && onPlattform)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !caida && onPlattform && !propulsado)
         {
             keyHit = true;
             if (transform.position.x > -0.5)
@@ -38,7 +41,7 @@ public class playerController : MonoBehaviour
 
         }
 
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && caida == false && onPlattform)
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && !caida && onPlattform && !propulsado)
         {
             keyHit = true;
             if (transform.position.x < 0.5)
@@ -48,7 +51,7 @@ public class playerController : MonoBehaviour
             }
         }
 
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && caida == false && onPlattform)
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && !caida && onPlattform && !propulsado)
         {
             keyHit = true;
             position = new Vector3(player.transform.position.x, player.transform.position.y + distanciaAltura, player.transform.position.z);  
@@ -72,13 +75,26 @@ public class playerController : MonoBehaviour
             
         }
 
-        
+        if (propulsado)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 0.85)
+            {
+                propulsado = false;
+                timer = 0f;
+                caida = true;
+            }
+        }
+
+
     }
 
     private void FixedUpdate()
     {
         caer();
+        propulsar();
     }
+
 
     public void OnTriggerStay2D(Collider2D collider)
     {
@@ -107,6 +123,21 @@ public class playerController : MonoBehaviour
             }
         }
 
+        if (collider.gameObject.tag == "Jetpack")
+        {
+            Debug.Log("Propulsado");
+            propulsado = true;
+            keyHit = false;
+            GasMovement.speed += 2;
+            collider.gameObject.SetActive(false);
+        }
+
+        if (collider.gameObject.tag == "Gas")
+        {
+            Debug.Log("Muerto");
+            
+        }
+
     }
 
     public void OnTriggerExit2D(Collider2D collider)
@@ -122,6 +153,14 @@ public class playerController : MonoBehaviour
         if (caida)
         {
             transform.Translate(fall * speed * Time.deltaTime);
+        }
+    }
+
+    public void propulsar()
+    {
+        if (propulsado)
+        {
+            transform.Translate(up * speed * Time.deltaTime);
         }
     }
 }

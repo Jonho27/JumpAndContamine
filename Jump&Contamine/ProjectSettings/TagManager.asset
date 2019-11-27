@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Plataforma
   - Vacio
+  - Jetpack
+  - Gas
   layers:
   - Default
   - TransparentFX

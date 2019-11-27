@@ -13,10 +13,13 @@ public class playerController : MonoBehaviour
     public bool onPlattform = false;
     public bool caida = false;
     public bool propulsado = false;
+    public bool globo = false;
+    public bool elevado = false;
     private float speed = 10f;
     private Vector2 fall = new Vector2(0, -1);
     private Vector2 up = new Vector2(0, 1);
     private float timer = 0f;
+    private float timer2 = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +32,7 @@ public class playerController : MonoBehaviour
     void Update()
     {
                 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !caida && onPlattform && !propulsado)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !caida && onPlattform && !propulsado && !elevado)
         {
             keyHit = true;
             if (transform.position.x > -0.5)
@@ -41,7 +44,7 @@ public class playerController : MonoBehaviour
 
         }
 
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && !caida && onPlattform && !propulsado)
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && !caida && onPlattform && !propulsado && !elevado)
         {
             keyHit = true;
             if (transform.position.x < 0.5)
@@ -51,7 +54,7 @@ public class playerController : MonoBehaviour
             }
         }
 
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && !caida && onPlattform && !propulsado)
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && !caida && onPlattform && !propulsado && !elevado)
         {
             keyHit = true;
             position = new Vector3(player.transform.position.x, player.transform.position.y + distanciaAltura, player.transform.position.z);  
@@ -86,6 +89,17 @@ public class playerController : MonoBehaviour
             }
         }
 
+        if (elevado)
+        {
+            timer2 += Time.deltaTime;
+            if (timer2 >= 1.2)
+            {
+                elevado = false;
+                timer2 = 0f;
+                caida = true;
+            }
+        }
+
 
     }
 
@@ -93,6 +107,7 @@ public class playerController : MonoBehaviour
     {
         caer();
         propulsar();
+        elevar();
     }
 
 
@@ -134,8 +149,23 @@ public class playerController : MonoBehaviour
 
         if (collider.gameObject.tag == "Gas")
         {
-            Debug.Log("Muerto");
+            if (globo)
+            {
+                elevado = true;
+                globo = false;
+            }
+
+            else
+            {
+                Debug.Log("Muerto");
+            }
             
+        }
+
+        if (collider.gameObject.tag == "Globo")
+        {
+            globo = true;
+            collider.gameObject.SetActive(false);
         }
 
     }
@@ -159,6 +189,14 @@ public class playerController : MonoBehaviour
     public void propulsar()
     {
         if (propulsado)
+        {
+            transform.Translate(up * speed * Time.deltaTime);
+        }
+    }
+
+    public void elevar()
+    {
+        if (elevado)
         {
             transform.Translate(up * speed * Time.deltaTime);
         }

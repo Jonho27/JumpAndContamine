@@ -21,10 +21,13 @@ public class playerController : MonoBehaviour
     private float timer = 0f;
     private float timer2 = 0f;
 
+    private Animator myAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
         position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+        myAnimator = GetComponent<Animator>();
     }
 
 
@@ -35,10 +38,10 @@ public class playerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow) && !caida && onPlattform && !propulsado && !elevado)
         {
             keyHit = true;
-            if (transform.position.x > -0.5)
-            {
+            if (transform.position.x > -0.6)
+            {   
                 position = new Vector3(player.transform.position.x - distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
-
+                myAnimator.SetTrigger("jump");
             }
 
 
@@ -47,10 +50,10 @@ public class playerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightArrow) && !caida && onPlattform && !propulsado && !elevado)
         {
             keyHit = true;
-            if (transform.position.x < 0.5)
+            if (transform.position.x < 0.6)
             {
                 position = new Vector3(player.transform.position.x + distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
-
+                myAnimator.SetTrigger("jump");
             }
         }
 
@@ -58,6 +61,7 @@ public class playerController : MonoBehaviour
         {
             keyHit = true;
             position = new Vector3(player.transform.position.x, player.transform.position.y + distanciaAltura, player.transform.position.z);  
+            myAnimator.SetTrigger("jump");
         }
         
         
@@ -69,6 +73,7 @@ public class playerController : MonoBehaviour
             if(player.transform.position == position)
             {
                 keyHit = false;
+
 
                 /*if(onPlattform == false)
                 {
@@ -97,6 +102,7 @@ public class playerController : MonoBehaviour
                 elevado = false;
                 timer2 = 0f;
                 caida = true;
+               
             }
         }
 
@@ -116,6 +122,7 @@ public class playerController : MonoBehaviour
         if(collider.gameObject.tag == "Plataforma")
         {
             onPlattform = true;
+            
         }
     }
 
@@ -158,6 +165,7 @@ public class playerController : MonoBehaviour
             else
             {
                 Debug.Log("Muerto");
+                myAnimator.SetBool("dead",true);
             }
             
         }
@@ -201,4 +209,6 @@ public class playerController : MonoBehaviour
             transform.Translate(up * speed * Time.deltaTime);
         }
     }
+
+
 }

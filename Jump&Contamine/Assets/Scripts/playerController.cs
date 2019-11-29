@@ -22,7 +22,6 @@ public class playerController : MonoBehaviour
     //private float timer2 = 0f;
 
     public bool impulsoContaminante = false;
-    public bool impulsoReciclable = false;
 
     private Animator myAnimator;
 
@@ -38,7 +37,7 @@ public class playerController : MonoBehaviour
     void Update()
     {
                 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante && !impulsoReciclable)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
         {
             keyHit = true;
             if (transform.position.x > -0.8)
@@ -50,7 +49,7 @@ public class playerController : MonoBehaviour
 
         }
 
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante && !impulsoReciclable)
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
         {
             keyHit = true;
             if (transform.position.x < 0.8)
@@ -60,7 +59,7 @@ public class playerController : MonoBehaviour
             }
         }
 
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante && !impulsoReciclable)
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
         {
             keyHit = true;
             position = new Vector3(player.transform.position.x, player.transform.position.y + distanciaAltura, player.transform.position.z);  
@@ -115,26 +114,12 @@ public class playerController : MonoBehaviour
         {
             timer += Time.deltaTime;
             //myAnimator.SetTrigger("jump");
-            if (timer >= 0.5)
+            if (timer >= 0.85)
             {
                 impulsoContaminante = false;
                 timer = 0f;
                 caida = true;
                 GasMovement.speed += 2;
-
-            }
-        }
-
-        if (impulsoReciclable)
-        {
-            timer += Time.deltaTime;
-            //myAnimator.SetTrigger("jump");
-            if (timer >= 0.6)
-            {
-                impulsoReciclable = false;
-                timer = 0f;
-                caida = true;
-                GasMovement.speed -= 1.5f;
 
             }
         }
@@ -148,13 +133,12 @@ public class playerController : MonoBehaviour
         propulsar();
         elevar();
         contaminar();
-        reciclar();
     }
 
 
     public void OnTriggerStay2D(Collider2D collider)
     {
-        if(collider.gameObject.tag == "Plataforma")
+        if(collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable")
         {
             onPlattform = true;
             
@@ -166,30 +150,28 @@ public class playerController : MonoBehaviour
             keyHit = false;
 
         }
-
-        if (collider.gameObject.tag == "Reciclable")
-        {
-            impulsoReciclable = true;
-            keyHit = false;
-
-        }
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Plataforma" && caida)
+        if ((collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable") && caida)
         {
             transform.position = new Vector3(collider.gameObject.transform.position.x + 0.5f, collider.gameObject.transform.position.y + 1f, transform.position.z);
             caida = false;    
         }
 
-        if (collider.gameObject.tag == "Vacio" && !caida && !propulsado && !elevado && !impulsoContaminante && !impulsoReciclable)
+        if (collider.gameObject.tag == "Reciclable" && !caida)
+        {
+            GasMovement.speed -= 1.5f;
+        }
+
+        if (collider.gameObject.tag == "Vacio" && !caida && !propulsado && !elevado && !impulsoContaminante)
         {
             caida = true;
             keyHit = false;  
         }
 
-        if (collider.gameObject.tag == "Jetpack" && !elevado && !impulsoContaminante && !impulsoReciclable)
+        if (collider.gameObject.tag == "Jetpack" && !elevado && !impulsoContaminante)
         {
             Debug.Log("Propulsado");
             propulsado = true;
@@ -198,7 +180,7 @@ public class playerController : MonoBehaviour
             collider.gameObject.SetActive(false);   
         }
 
-        if (collider.gameObject.tag == "Globo" && !propulsado && !impulsoContaminante && !impulsoReciclable)
+        if (collider.gameObject.tag == "Globo" && !propulsado && !impulsoContaminante)
         {
             globo = true;
             collider.gameObject.SetActive(false);
@@ -223,10 +205,11 @@ public class playerController : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Plataforma")
+        if (collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable")
         {
             onPlattform = false;
         }
+
     }
 
     private void caer()
@@ -260,14 +243,5 @@ public class playerController : MonoBehaviour
             transform.Translate(up * speed * Time.deltaTime);
         }
     }
-
-    public void reciclar()
-    {
-        if (impulsoContaminante)
-        {
-            transform.Translate(up * speed * Time.deltaTime);
-        }
-    }
-
 
 }

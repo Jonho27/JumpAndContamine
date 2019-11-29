@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{BE2AE2B9-C0DC-0BC0-61CA-E4FA7E9F40E4}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/playerController.cs">
     <Files>
-      <File FileName="Assets/Scripts/playerController.cs" Line="67" Column="1" />
+      <File FileName="Assets/Scripts/playerController.cs" Line="178" Column="49" />
       <File FileName="Assets/Scripts/cameraController.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>

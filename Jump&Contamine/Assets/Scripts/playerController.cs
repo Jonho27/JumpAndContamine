@@ -38,7 +38,7 @@ public class playerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow) && !caida && onPlattform && !propulsado && !elevado)
         {
             keyHit = true;
-            if (transform.position.x > -0.6)
+            if (transform.position.x > -0.8)
             {   
                 position = new Vector3(player.transform.position.x - distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
                 myAnimator.SetTrigger("jump");
@@ -50,7 +50,7 @@ public class playerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightArrow) && !caida && onPlattform && !propulsado && !elevado)
         {
             keyHit = true;
-            if (transform.position.x < 0.6)
+            if (transform.position.x < 0.8)
             {
                 position = new Vector3(player.transform.position.x + distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
                 myAnimator.SetTrigger("jump");
@@ -97,7 +97,7 @@ public class playerController : MonoBehaviour
         if (elevado)
         {
             timer2 += Time.deltaTime;
-            if (timer2 >= 1.2)
+            if (timer2 >= 0.5)
             {
                 elevado = false;
                 timer2 = 0f;
@@ -132,8 +132,11 @@ public class playerController : MonoBehaviour
         {
             if (caida)
             {
+                transform.position = new Vector3(collider.gameObject.transform.position.x + 0.5f, collider.gameObject.transform.position.y + 1f, transform.position.z);
                 caida = false;
             }
+            
+            
         }
 
         if (collider.gameObject.tag == "Vacio")
@@ -143,6 +146,7 @@ public class playerController : MonoBehaviour
                 caida = true;
                 keyHit = false;
             }
+            
         }
 
         if (collider.gameObject.tag == "Jetpack")
@@ -151,6 +155,12 @@ public class playerController : MonoBehaviour
             propulsado = true;
             keyHit = false;
             GasMovement.speed += 2;
+            collider.gameObject.SetActive(false);
+        }
+
+        if (collider.gameObject.tag == "Globo")
+        {
+            globo = true;
             collider.gameObject.SetActive(false);
         }
 
@@ -170,11 +180,7 @@ public class playerController : MonoBehaviour
             
         }
 
-        if (collider.gameObject.tag == "Globo")
-        {
-            globo = true;
-            collider.gameObject.SetActive(false);
-        }
+        
 
     }
 

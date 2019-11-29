@@ -9,6 +9,8 @@ TagManager:
   - Jetpack
   - Gas
   - Globo
+  - Contaminante
+  - Reciclar
   layers:
   - Default
   - TransparentFX

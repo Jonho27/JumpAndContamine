@@ -120,6 +120,7 @@ public class playerController : MonoBehaviour
                 timer = 0f;
                 caida = true;
                 GasMovement.speed += 2;
+                
 
             }
         }
@@ -148,6 +149,7 @@ public class playerController : MonoBehaviour
         {
             impulsoContaminante = true;
             keyHit = false;
+            ContamineController.activo = true;
 
         }
     }
@@ -163,6 +165,7 @@ public class playerController : MonoBehaviour
         if (collider.gameObject.tag == "Reciclable" && !caida)
         {
             GasMovement.speed -= 1.5f;
+            RecycleController.activo = true;
         }
 
         if (collider.gameObject.tag == "Vacio" && !caida && !propulsado && !elevado && !impulsoContaminante)
@@ -177,7 +180,8 @@ public class playerController : MonoBehaviour
             propulsado = true;
             keyHit = false;
             GasMovement.speed += 2;
-            collider.gameObject.SetActive(false);   
+            collider.gameObject.SetActive(false);
+            ContamineController.activo = true;
         }
 
         if (collider.gameObject.tag == "Globo" && !propulsado && !impulsoContaminante)

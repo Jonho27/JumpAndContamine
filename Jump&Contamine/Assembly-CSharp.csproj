@@ -63,10 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\cameraController.cs" />
+    <Compile Include="Assets\Scripts\ContamineController.cs" />
     <Compile Include="Assets\Scripts\GasMovement.cs" />
     <Compile Include="Assets\Scripts\mainMenu.cs" />
     <Compile Include="Assets\Scripts\pauseMenu.cs" />
     <Compile Include="Assets\Scripts\playerController.cs" />
+    <Compile Include="Assets\Scripts\RecycleController.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/jorge/OneDrive/Documentos/GitHub/JumpAndContamine/Jump&amp;Contamine/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

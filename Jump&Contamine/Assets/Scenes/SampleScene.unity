@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 68056181}
   m_Layer: 0
   m_Name: PlataformaIzq (1)
-  m_TagString: Plataforma
+  m_TagString: Reciclable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -794,7 +794,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232544715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.88, y: -1.39, z: 20}
+  m_LocalPosition: {x: -10.14, y: -1.39, z: 20}
   m_LocalScale: {x: 0.082, y: 0.082, z: 0.082}
   m_Children: []
   m_Father: {fileID: 0}
@@ -813,7 +813,7 @@ GameObject:
   - component: {fileID: 372786991}
   m_Layer: 0
   m_Name: PlataformaDer
-  m_TagString: Plataforma
+  m_TagString: Reciclable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1130,6 +1130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 552926407}
   - component: {fileID: 552926406}
+  - component: {fileID: 552926408}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1200,6 +1201,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &552926408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552926405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991568c9611a64b84beb8efb4c69afe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1575206237}
+  offset: {x: 0, y: 20, z: 0}
+  jump: {x: 0, y: 2.9, z: 0}
 --- !u!1 &619309143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,7 +1640,7 @@ GameObject:
   - component: {fileID: 879170712}
   m_Layer: 0
   m_Name: PlataformaIzq
-  m_TagString: Plataforma
+  m_TagString: Reciclable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1667,7 +1683,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ceb3b13a0fe534691ab18400d9223e45, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a4b9a454029047e99b32f6a9322101a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1945,7 +1961,7 @@ GameObject:
   - component: {fileID: 961650034}
   m_Layer: 0
   m_Name: PlataformaIzq (2)
-  m_TagString: Reciclable
+  m_TagString: Contaminante
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1967,7 +1983,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 14.26, y: 13.98}
+    oldSize: {x: 14.25, y: 13.98}
     newSize: {x: 4.99, y: 7.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2014,7 +2030,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 75470146dc9984e80aad9e1eb172eb2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ef8f92dea6794de1aff3274a350297f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3369,7 +3385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551022840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 1.91, z: 20}
+  m_LocalPosition: {x: -10.26, y: 1.91, z: 20}
   m_LocalScale: {x: 0.051267553, y: 0.051267553, z: 0.051267553}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3843,7 +3859,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 4c22417ac002648f7a51fc95f8d9dce8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dfb9c4d8be2cb4af1b31ba79b08ec495, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3981,7 +3997,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -143, y: 314}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 152.82, y: 250.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737525139
 MonoBehaviour:
@@ -4001,7 +4017,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4e63cba63953c25408917618370906f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a7066567f03b4d15aa888657b22a372, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4539,7 +4555,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -143, y: 314}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 152.82, y: 250.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2089536366
 MonoBehaviour:
@@ -4571,7 +4587,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 03dbbae4c16e5ce4480f4994bd5d4254, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b373b3ebe8b22473fa2401e66cb61a35, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

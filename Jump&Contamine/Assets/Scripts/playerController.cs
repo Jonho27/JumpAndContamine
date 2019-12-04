@@ -43,7 +43,7 @@ public class playerController : MonoBehaviour
         {
             keyHit = true;
             if (transform.position.x > -0.8)
-            {   backgroundMovement.escenario = true;
+            {   //backgroundMovement.escenario = true;
                 position = new Vector3(player.transform.position.x - distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
                 myAnimator.SetTrigger("jump");
                 
@@ -57,7 +57,7 @@ public class playerController : MonoBehaviour
             keyHit = true;
             if (transform.position.x < 0.8)
             {
-                backgroundMovement.escenario = true;
+                //backgroundMovement.escenario = true;
                 position = new Vector3(player.transform.position.x + distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
                 myAnimator.SetTrigger("jump");
             }
@@ -65,7 +65,7 @@ public class playerController : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.UpArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
         {
-            backgroundMovement.escenario = true;
+            //backgroundMovement.escenario = true;
             keyHit = true;
             position = new Vector3(player.transform.position.x, player.transform.position.y + distanciaAltura, player.transform.position.z);  
             myAnimator.SetTrigger("jump");

@@ -21,7 +21,7 @@ public class ContamineController : MonoBehaviour
         {
             timer += Time.deltaTime;
             gameObject.GetComponent<Image>().enabled = true;
-            if (timer > 1.2)
+            if (timer > 0.65)
             {
                 activo = false;
                 timer = 0;

@@ -19,12 +19,12 @@ public class backgroundMovement : MonoBehaviour
 
     void Update()
     {
-        if (escenario)
+        /*if (escenario)
         {
             desiredPosition = new Vector3(transform.position.x, player.transform.position.y, transform.position.z) + jump;
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
             escenario = false;
-        }
+        }*/
     }
 }

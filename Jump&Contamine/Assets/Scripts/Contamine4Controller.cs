@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RecycleController : MonoBehaviour
+public class Contamine4Controller : MonoBehaviour
 {
     public static bool activo = false;
     private float timer = 0f;

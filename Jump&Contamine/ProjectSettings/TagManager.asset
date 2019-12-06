@@ -12,6 +12,7 @@ TagManager:
   - Contaminante
   - Reciclable
   - ConPlataforma
+  - End
   layers:
   - Default
   - TransparentFX

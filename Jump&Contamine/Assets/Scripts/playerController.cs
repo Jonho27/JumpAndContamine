@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
+    public GameObject gameOverWin;
+    [HideInInspector] public static bool canMove = true;
 
     public GameObject player;
     private Vector3 position;
@@ -38,40 +40,10 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-                
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
+        if (canMove)
         {
-            keyHit = true;
-            if (transform.position.x > -0.8)
-            {   //backgroundMovement.escenario = true;
-                position = new Vector3(player.transform.position.x - distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
-                myAnimator.SetTrigger("jump");
-                
-            }
-
-
+            Move();
         }
-
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
-        {
-            keyHit = true;
-            if (transform.position.x < 0.8)
-            {
-                //backgroundMovement.escenario = true;
-                position = new Vector3(player.transform.position.x + distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
-                myAnimator.SetTrigger("jump");
-            }
-        }
-
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
-        {
-            //backgroundMovement.escenario = true;
-            keyHit = true;
-            position = new Vector3(player.transform.position.x, player.transform.position.y + distanciaAltura, player.transform.position.z);  
-            myAnimator.SetTrigger("jump");
-        }
-        
-        
 
         if (keyHit)
         {
@@ -132,6 +104,41 @@ public class playerController : MonoBehaviour
 
     }
 
+    void Move()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
+        {
+            keyHit = true;
+            if (transform.position.x > -0.8)
+            {   //backgroundMovement.escenario = true;
+                position = new Vector3(player.transform.position.x - distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
+                myAnimator.SetTrigger("jump");
+
+            }
+
+
+        }
+
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
+        {
+            keyHit = true;
+            if (transform.position.x < 0.8)
+            {
+                //backgroundMovement.escenario = true;
+                position = new Vector3(player.transform.position.x + distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
+                myAnimator.SetTrigger("jump");
+            }
+        }
+
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
+        {
+            //backgroundMovement.escenario = true;
+            keyHit = true;
+            position = new Vector3(player.transform.position.x, player.transform.position.y + distanciaAltura, player.transform.position.z);
+            myAnimator.SetTrigger("jump");
+        }
+    }
+
     private void FixedUpdate()
     {
         caer();
@@ -160,6 +167,13 @@ public class playerController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
+        if (collider.gameObject.tag == "End")
+        {
+            gameOverWin.SetActive(true);
+            canMove = false;
+        }
+
+
         if ((collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable" || collider.gameObject.tag == "ConPlataforma") && caida)
         {
             transform.position = new Vector3(collider.gameObject.transform.position.x + 0.5f, collider.gameObject.transform.position.y + 1f, transform.position.z);

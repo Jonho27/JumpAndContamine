@@ -33,12 +33,14 @@ public class pauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        playerController.canMove = true;
     }
     void PauseMenu()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        playerController.canMove = false;
     }
 
 

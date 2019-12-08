@@ -25,6 +25,7 @@ public class playerController : MonoBehaviour
     //private float timer2 = 0f;
 
     public bool impulsoContaminante = false;
+    public bool jetpack = false;
 
     private Animator myAnimator;
 
@@ -66,7 +67,7 @@ public class playerController : MonoBehaviour
         {
             timer += Time.deltaTime;
             //myAnimator.SetTrigger("jump");
-            if (timer >= 1.05)
+            if (timer >= 1.2)
             {
                 propulsado = false;
                 timer = 0f;
@@ -78,7 +79,7 @@ public class playerController : MonoBehaviour
         {
             timer += Time.deltaTime;
             //myAnimator.SetTrigger("jump");
-            if (timer >= 1.2)
+            if (timer >= 1.05)
             {
                 elevado = false;
                 timer = 0f;
@@ -108,6 +109,7 @@ public class playerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
         {
+            soundManager.PlaySound("salto");
             keyHit = true;
             if (transform.position.x > -0.8)
             {   //backgroundMovement.escenario = true;
@@ -121,6 +123,7 @@ public class playerController : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.RightArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
         {
+            soundManager.PlaySound("salto");
             keyHit = true;
             if (transform.position.x < 0.8)
             {
@@ -132,6 +135,7 @@ public class playerController : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.UpArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
         {
+            soundManager.PlaySound("salto");
             //backgroundMovement.escenario = true;
             keyHit = true;
             position = new Vector3(player.transform.position.x, player.transform.position.y + distanciaAltura, player.transform.position.z);
@@ -150,14 +154,15 @@ public class playerController : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collider)
     {
-        if(collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable" || collider.gameObject.tag == "ConPlataforma")
+        if((collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable" || collider.gameObject.tag == "ConPlataforma") && !elevado)
         {
             onPlattform = true;
             
         }
 
-        if (collider.gameObject.tag == "Contaminante")
+        if (collider.gameObject.tag == "Contaminante" && !propulsado && !elevado)
         {
+            //soundManager.PlaySound("impulso");
             impulsoContaminante = true;
             keyHit = false;
             Contamine4Controller.activo = true;
@@ -167,6 +172,10 @@ public class playerController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
+        if (collider.gameObject.tag == "Contaminante" && !propulsado && !elevado)
+        {
+            soundManager.PlaySound("impulso");
+        }
         if (collider.gameObject.tag == "End")
         {
             gameOverWin.SetActive(true);
@@ -174,7 +183,7 @@ public class playerController : MonoBehaviour
         }
 
 
-        if ((collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable" || collider.gameObject.tag == "ConPlataforma") && caida)
+        if ((collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable" || collider.gameObject.tag == "ConPlataforma" || collider.gameObject.tag == "Contaminante") && caida)
         {
             transform.position = new Vector3(collider.gameObject.transform.position.x + 0.5f, collider.gameObject.transform.position.y + 1f, transform.position.z);
             caida = false;    
@@ -186,9 +195,15 @@ public class playerController : MonoBehaviour
             ContamineController.activo = true;
         }
 
+        if (collider.gameObject.tag == "ConPlataforma" && !propulsado && !elevado && !impulsoContaminante)
+        {
+            soundManager.PlaySound("negativo");
+        }
+
         if (collider.gameObject.tag == "Reciclable" && !caida)
         {
-            if(GasMovement.speed - 0.4f >= 1)
+            soundManager.PlaySound("positivo");
+            if (GasMovement.speed - 0.4f >= 1)
             {
                 GasMovement.speed -= 0.4f;
             }
@@ -201,36 +216,56 @@ public class playerController : MonoBehaviour
 
         if (collider.gameObject.tag == "Vacio" && !caida && !propulsado && !elevado && !impulsoContaminante)
         {
-            caida = true;
-            keyHit = false;  
+            if (globo)
+            {
+                soundManager.PlaySound("elevacion");
+                elevado = true;
+                keyHit = false;
+                globo = false;
+            }
+
+            else
+            {
+                caida = true;
+                keyHit = false;
+            }
+            
         }
 
         if (collider.gameObject.tag == "Jetpack" && !elevado && !impulsoContaminante)
         {
-            Debug.Log("Propulsado");
-            propulsado = true;
-            keyHit = false;
-            GasMovement.speed += 1.2f;
+            soundManager.PlaySound("globo");
+            jetpack = true;
             collider.gameObject.SetActive(false);
-            Contamine8Controller.activo = true;
         }
 
         if (collider.gameObject.tag == "Globo" && !propulsado && !impulsoContaminante)
         {
+            soundManager.PlaySound("globo");
             globo = true;
             collider.gameObject.SetActive(false);
         }
 
         if (collider.gameObject.tag == "Gas")
         {
-            if (globo)
+            if (jetpack)
             {
-                elevado = true;
-                globo = false;
+                if (caida)
+                {
+                    caida = false;
+                }
+                soundManager.PlaySound("propulsion");
+                Debug.Log("Propulsado");
+                propulsado = true;
+                keyHit = false;
+                GasMovement.speed += 1.2f;
+                Contamine8Controller.activo = true;
+                jetpack = false;
             }
 
             else
             {
+                soundManager.PlaySound("muerte");
                 Debug.Log("Muerto");
                 myAnimator.SetBool("dead",true);
             }

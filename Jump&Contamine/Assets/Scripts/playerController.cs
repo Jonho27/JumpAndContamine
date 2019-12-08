@@ -107,6 +107,10 @@ public class playerController : MonoBehaviour
 
     void Move()
     {
+        //Touch touch = Input.GetTouch(0);
+        //Vector3 touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
+
+        //con teclado
         if (Input.GetKeyDown(KeyCode.LeftArrow) && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
         {
             soundManager.PlaySound("salto");
@@ -141,6 +145,47 @@ public class playerController : MonoBehaviour
             position = new Vector3(player.transform.position.x, player.transform.position.y + distanciaAltura, player.transform.position.z);
             myAnimator.SetTrigger("jump");
         }
+
+        /*
+        //con movil
+        else if ((touchPosition.x <= 0.3f && touchPosition.y > 0.2f && touchPosition.y < 0.5f) //left
+            && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
+        {
+            soundManager.PlaySound("salto");
+            keyHit = true;
+            if (transform.position.x > -0.8)
+            {   //backgroundMovement.escenario = true;
+                position = new Vector3(player.transform.position.x - distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
+                myAnimator.SetTrigger("jump");
+
+            }
+        }
+        else if ((touchPosition.x >= 0.7f && touchPosition.y > 0.2f && touchPosition.y < 0.5f) //right
+            && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
+        {
+            soundManager.PlaySound("salto");
+            keyHit = true;
+            if (transform.position.x > -0.8)
+            {   //backgroundMovement.escenario = true;
+                position = new Vector3(player.transform.position.x + distanciaLados, player.transform.position.y + distanciaAltura, player.transform.position.z);
+                myAnimator.SetTrigger("jump");
+
+            }
+        }
+        else if ((touchPosition.x >= 0.4f && touchPosition.x <= 0.6f && touchPosition.y > 0.2f && touchPosition.y < 0.5f) //up
+            && !caida && onPlattform && !propulsado && !elevado && !impulsoContaminante)
+        {
+            soundManager.PlaySound("salto");
+            keyHit = true;
+            if (transform.position.x > -0.8)
+            {   //backgroundMovement.escenario = true;
+            position = new Vector3(player.transform.position.x, player.transform.position.y + distanciaAltura, player.transform.position.z);
+                myAnimator.SetTrigger("jump");
+
+            }
+        }
+        */
+
     }
 
     private void FixedUpdate()

@@ -7,17 +7,16 @@ using UnityEngine.Audio;
 public class settingsMenu : MonoBehaviour
 {
 
-    public Slider slider;
     public AudioMixer audioMixer;
 
-    private void Start()
+    public void stopMusic()
     {
-        slider.onValueChanged.AddListener(delegate { setVolume(); });
+        audioMixer.SetFloat("volume",  -80 );
     }
 
-    public void setVolume()
+    public void playMusic()
     {
-        audioMixer.SetFloat("volume", Mathf.Log10(slider.value) * 20 );
+        audioMixer.SetFloat("volume",  10 );
     }
 
 }

@@ -11,12 +11,22 @@ public class settingsMenu : MonoBehaviour
 
     public void stopMusic()
     {
-        audioMixer.SetFloat("volume",  -80 );
+        audioMixer.SetFloat("music", -80);
     }
 
     public void playMusic()
     {
-        audioMixer.SetFloat("volume",  10 );
+        audioMixer.SetFloat("music", 10);
+    }
+
+    public void stopSounds()
+    {
+        audioMixer.SetFloat("sounds", -80);
+    }
+
+    public void playSounds()
+    {
+        audioMixer.SetFloat("sounds", 0);
     }
 
 }

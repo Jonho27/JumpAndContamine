@@ -16,7 +16,7 @@ public class settingsMenu : MonoBehaviour
 
     public void playMusic()
     {
-        audioMixer.SetFloat("music", 10);
+        audioMixer.SetFloat("music", 0);
     }
 
     public void stopSounds()

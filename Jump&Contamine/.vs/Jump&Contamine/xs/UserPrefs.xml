@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{BE2AE2B9-C0DC-0BC0-61CA-E4FA7E9F40E4}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/cameraController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/putLevels.cs">
     <Files>
       <File FileName="Assets/Scripts/playerController.cs" Line="100" Column="1" />
-      <File FileName="Assets/Scripts/cameraController.cs" Line="16" Column="124" />
+      <File FileName="Assets/Scripts/cameraController.cs" Line="16" Column="1" />
+      <File FileName="Assets/Scripts/putLevels.cs" Line="21" Column="67" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3a113e94-41a0-4121-bece-542bfc84c171" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ad7b2a24-2cd8-4cf8-84ad-d9a675c27cb7" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

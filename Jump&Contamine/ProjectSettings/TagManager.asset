@@ -13,6 +13,8 @@ TagManager:
   - Reciclable
   - ConPlataforma
   - End
+  - HaLlegado
+  - levelPrefab
   layers:
   - Default
   - TransparentFX

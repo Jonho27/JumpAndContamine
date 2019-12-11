@@ -5,18 +5,18 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     public GameObject gameOverWin;
-    [HideInInspector] public static bool canMove = true;
+    [HideInInspector] public static bool canMove;
 
     public GameObject player;
     private Vector3 position;
     public float distanciaLados;
     public float distanciaAltura;
-    public bool keyHit = false;
-    public bool onPlattform = false;
-    public bool caida = false;
-    public bool propulsado = false;
-    public bool globo = false;
-    public bool elevado = false;
+    public bool keyHit;
+    public bool onPlattform;
+    public bool caida;
+    public bool propulsado;
+    public bool globo;
+    public bool elevado;
     private float speed = 10f;
     private Vector2 fall = new Vector2(0, -1);
     private Vector2 up = new Vector2(0, 1);
@@ -24,17 +24,30 @@ public class playerController : MonoBehaviour
     backgroundMovement background;
     //private float timer2 = 0f;
 
-    public bool impulsoContaminante = false;
-    public bool jetpack = false;
+    public bool impulsoContaminante;
+    public bool jetpack;
 
     private Animator myAnimator;
+
+    private bool muerto;
 
     // Start is called before the first frame update
     void Start()
     {
         position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         myAnimator = GetComponent<Animator>();
-  
+        muerto = false;
+        keyHit = false;
+        onPlattform = false;
+        caida = false;
+        propulsado = false;
+        globo = false;
+        elevado = false;
+        timer = 0f;
+        impulsoContaminante = false;
+        jetpack = false;
+        canMove = true;
+
     }
 
 
@@ -186,6 +199,24 @@ public class playerController : MonoBehaviour
         }
         */
 
+        if (muerto)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 4.2f)
+            {
+                GasMovement.speed = 0;
+                if(transform.position.y <= 20) { DeathTextManager.caso = 50; }
+                if (transform.position.y > 20 && transform.position.y <= 50) { DeathTextManager.caso = 100; }
+                if (transform.position.y > 50 && transform.position.y <= 100) { DeathTextManager.caso = 120; }
+                if (transform.position.y > 100 && transform.position.y <= 800) { DeathTextManager.caso = 200; }
+                if (transform.position.y > 800 && transform.position.y <= 1500) { DeathTextManager.caso = 250; }
+                if (transform.position.y > 1500 && transform.position.y <= 2200) { DeathTextManager.caso = 300; }
+                if (transform.position.y > 2200 && transform.position.y <= 4000) { DeathTextManager.caso = 470; }
+                if (transform.position.y > 4000) { DeathTextManager.caso = 700; }
+
+            }
+        }
+
     }
 
     private void FixedUpdate()
@@ -313,6 +344,9 @@ public class playerController : MonoBehaviour
                 soundManager.PlaySound("muerte");
                 Debug.Log("Muerto");
                 myAnimator.SetBool("dead",true);
+                muerto = true;
+                GasMovement.speed = 3f;
+                
             }
             
         }

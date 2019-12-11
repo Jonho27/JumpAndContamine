@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class Contamine4Controller : MonoBehaviour
 {
-    public static bool activo = false;
-    private float timer = 0f;
+    public static bool activo;
+    private float timer;
     // Start is called before the first frame update
     void Start()
     {
+        activo = false;
+        timer = 0f;
 
     }
 

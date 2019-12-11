@@ -7,6 +7,12 @@ public class playerController : MonoBehaviour
     public GameObject gameOverWin;
     [HideInInspector] public static bool canMove;
 
+    public GameObject elPrefab;
+    public GameObject[] todasLasPlataformas;
+    public bool llegada;
+    float fallo;
+
+
     public GameObject player;
     private Vector3 position;
     public float distanciaLados;
@@ -35,6 +41,9 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        llegada = false;
+        fallo = 0f;
+
         position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         myAnimator = GetComponent<Animator>();
         muerto = false;
@@ -49,6 +58,31 @@ public class playerController : MonoBehaviour
         jetpack = false;
         canMove = true;
         timer2 = 0f;
+
+        //Instantiate(elPrefab, prueba.transform);
+        todasLasPlataformas = GameObject.FindGameObjectsWithTag("Plataforma");  //returns GameObject[]
+        foreach (GameObject objeto in todasLasPlataformas)
+        {
+            Instantiate(elPrefab, objeto.transform);
+        }
+
+        todasLasPlataformas = GameObject.FindGameObjectsWithTag("Reciclable");  //returns GameObject[]
+        foreach (GameObject objeto in todasLasPlataformas)
+        {
+            Instantiate(elPrefab, objeto.transform);
+        }
+
+        todasLasPlataformas = GameObject.FindGameObjectsWithTag("ConPlataforma");  //returns GameObject[]
+        foreach (GameObject objeto in todasLasPlataformas)
+        {
+            Instantiate(elPrefab, objeto.transform);
+        }
+
+        todasLasPlataformas = GameObject.FindGameObjectsWithTag("Contaminante");  //returns GameObject[]
+        foreach (GameObject objeto in todasLasPlataformas)
+        {
+            Instantiate(elPrefab, objeto.transform);
+        }
 
     }
 
@@ -241,7 +275,12 @@ public class playerController : MonoBehaviour
         if((collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable" || collider.gameObject.tag == "ConPlataforma") && !elevado)
         {
             onPlattform = true;
-            
+
+            if (llegada)
+            {
+                position = new Vector3(collider.gameObject.transform.position.x + 0.5f, collider.gameObject.transform.position.y + 1, player.transform.position.z);
+                llegada = false;
+            }
         }
 
         if (collider.gameObject.tag == "Contaminante" && !propulsado && !elevado)
@@ -264,6 +303,10 @@ public class playerController : MonoBehaviour
         {
             gameOverWin.SetActive(true);
             canMove = false;
+        }
+        if (collider.gameObject.tag == "HaLlegado")
+        {
+            llegada = true;
         }
 
 

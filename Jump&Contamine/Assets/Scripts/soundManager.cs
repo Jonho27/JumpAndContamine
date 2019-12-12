@@ -5,7 +5,7 @@ using UnityEngine;
 public class soundManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static AudioClip boton, impulso, elevacion, propulsion, salto, muerte, positivo, globo, negativo, btnTutorial;
+    public static AudioClip boton, impulso, elevacion, propulsion, salto, muerte, positivo, globo, negativo, btnTutorial, cambio;
     public static AudioSource audioSource;
     void Start()
     {
@@ -19,6 +19,7 @@ public class soundManager : MonoBehaviour
         positivo = Resources.Load<AudioClip>("positivo");
         globo = Resources.Load<AudioClip>("globo");
         negativo = Resources.Load<AudioClip>("negativo");
+        cambio = Resources.Load<AudioClip>("cambio");
 
         audioSource = GetComponent<AudioSource>();
 
@@ -49,6 +50,9 @@ public class soundManager : MonoBehaviour
         {
             case "boton":
                 audioSource.PlayOneShot(boton);
+                break;
+            case "cambio":
+                audioSource.PlayOneShot(cambio);
                 break;
             case "impulso":
                 audioSource.PlayOneShot(impulso);

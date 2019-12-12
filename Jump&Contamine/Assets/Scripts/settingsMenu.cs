@@ -8,6 +8,8 @@ public class settingsMenu : MonoBehaviour
 {
 
     public AudioMixer audioMixer;
+    public static AudioClip cambio;
+    public static AudioSource audioSource;
 
 
     public Image fr0;
@@ -17,8 +19,9 @@ public class settingsMenu : MonoBehaviour
     public Image fr4;
     public Image fr5;
     public Image fr6;
-    public int number;
+    public int number, aux;
     private float timer;
+    
 
 
     // Start is called before the first frame update
@@ -26,20 +29,31 @@ public class settingsMenu : MonoBehaviour
     {
         timer = 0f;
         number = Random.Range(0,7);
+        aux = number;
+        cambio = Resources.Load<AudioClip>("cambio");
+
+        audioSource = GetComponent<AudioSource>();
         
     }
 
     // Update is called once per frame
     void Update()
-    {timer += Time.deltaTime;
+    {
+        timer += Time.deltaTime;
         activar();
         
         if (timer >= 5){
             
-            number = Random.Range(0,7);
+            //number = Random.Range(0,7);
+            while(number == aux){
+                number = Random.Range(0,7);}
+
             Debug.Log(number);
             timer = 0f;
+            aux = number;
+            audioSource.PlayOneShot(cambio);
             activar();}
+
         
     }
 

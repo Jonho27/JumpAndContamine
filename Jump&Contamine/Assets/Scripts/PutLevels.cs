@@ -5,12 +5,17 @@ using UnityEditor;
 
 public class PutLevels : MonoBehaviour
 {
-    [MenuItem("Tools/Generate Levels")]
+    private void Start()
+    {
+        DestroyLevels();
+        GenerateLevels();
+    }
+
     public static void GenerateLevels()
     {
 
         
-        GameObject[] levels = new GameObject[14];
+        GameObject[] levels = new GameObject[16];
 
         levels[0] = Resources.Load("prefabs/JORGE 1") as GameObject;
         levels[1] = Resources.Load("prefabs/JORGE 2") as GameObject;
@@ -26,16 +31,18 @@ public class PutLevels : MonoBehaviour
         levels[11] = Resources.Load("prefabs/PAU 2") as GameObject;
         levels[12] = Resources.Load("prefabs/PAU 3") as GameObject;
         levels[13] = Resources.Load("prefabs/PAU 4") as GameObject;
+        levels[14] = Resources.Load("prefabs/FRAN 3") as GameObject;
+        levels[15] = Resources.Load("prefabs/FRAN 4") as GameObject;
 
-        for(int i = 0; i < 100; i++)
+        for (int i = 0; i < 100; i++)
         {
 
-            Instantiate(levels[(int)Random.Range(0, 13)], new Vector3(0f, i * 60f , 0f), Quaternion.identity);
+            Instantiate(levels[(int)Random.Range(0, 15)], new Vector3(0f, i * 60f , 0f), Quaternion.identity);
         }
 
     }
 
-    [MenuItem("Tools/Delete Levels")]
+    
     public static void DestroyLevels()
     {
 

@@ -146,7 +146,14 @@ public class playerController : MonoBehaviour
                 impulsoContaminante = false;
                 timer = 0f;
                 caida = true;
-                GasMovement.speed += 0.8f;
+                if (GasMovement.speed + 0.8f <= 6.5)
+                {
+                    GasMovement.speed += 0.8f;
+                }
+                else
+                {
+                    GasMovement.speed = 6.5f;
+                }
                 
             }
         }
@@ -216,6 +223,7 @@ public class playerController : MonoBehaviour
             position = new Vector3(player.transform.position.x, player.transform.position.y + distanciaAltura, player.transform.position.z);
             myAnimator.SetTrigger("jump");
         }
+
 
         /*
         //con movil
@@ -318,6 +326,14 @@ public class playerController : MonoBehaviour
 
         if (collider.gameObject.tag == "ConPlataforma" && !caida)
         {
+            if (GasMovement.speed + 0.4f <= 6.5)
+            {
+                GasMovement.speed += 0.4f;
+            }
+            else
+            {
+                GasMovement.speed = 6.5f;
+            }
             GasMovement.speed += 0.4f;
             ContamineController.activo = true;
         }
@@ -385,13 +401,21 @@ public class playerController : MonoBehaviour
                 Debug.Log("Propulsado");
                 propulsado = true;
                 keyHit = false;
-                GasMovement.speed += 1.2f;
+                if (GasMovement.speed + 1.2f <= 6.5)
+                {
+                    GasMovement.speed += 1.2f;
+                }
+                else
+                {
+                    GasMovement.speed = 6.5f;
+                }
                 Contamine8Controller.activo = true;
                 jetpack = false;
             }
 
             else
             {
+                canMove = false;
                 soundManager.PlaySound("muerte");
                 Debug.Log("Muerto");
                 myAnimator.SetBool("dead",true);

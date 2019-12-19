@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\ContamineController.cs" />
      <Compile Include="Assets\Scripts\DeathTextManager.cs" />
      <Compile Include="Assets\Scripts\GasMovement.cs" />
+     <Compile Include="Assets\Scripts\InicioManager.cs" />
      <Compile Include="Assets\Scripts\mainMenu.cs" />
      <Compile Include="Assets\Scripts\pauseMenu.cs" />
      <Compile Include="Assets\Scripts\playerController.cs" />

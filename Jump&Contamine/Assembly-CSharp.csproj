@@ -56,8 +56,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/soundManager.cs" />
+    <Compile Include="Assets/Scripts/UI/FrasesIniciales.cs" />
+    <Compile Include="Assets/Scripts/UI/Sounds/ButtonClick.cs" />
     <Compile Include="Assets/Scripts/returnMenu.cs" />
     <Compile Include="Assets/pruebas.cs" />
+    <Compile Include="Assets/Scripts/UI/Sounds/AudioManager.cs" />
     <Compile Include="Assets/Scripts/UI/ButtonTextGimmick.cs" />
     <Compile Include="Assets/Scripts/settingsMenu.cs" />
     <Compile Include="Assets/Scripts/cameraController.cs" />
@@ -73,12 +76,11 @@
     <Compile Include="Assets/Scripts/screenResolution.cs" />
     <Compile Include="Assets/Scripts/PutLevels.cs" />
     <Compile Include="Assets/Scripts/soundBetweenScenes.cs" />
+    <Compile Include="Assets/Scripts/UI/Sounds/Sound.cs" />
     <Compile Include="Assets/Scripts/DeathTextManager.cs" />
     <Compile Include="Assets/Scripts/Contamine8Controller.cs" />
-    <Compile Include="Assets/Scripts/UI/FrasesIniciales.cs" />
-    <Compile Include="Assets/Scripts/UI/Sounds/ButtonClick.cs" />
-    <Compile Include="Assets/Scripts/UI/Sounds/AudioManager.cs" />
-    <Compile Include="Assets/Scripts/UI/Sounds/Sound.cs" />
+    <Compile Include="Assets/Scripts/UI/Tutorial.cs" />
+    <Compile Include="Assets/Scripts/UI/Configuración.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

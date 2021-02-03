@@ -34,7 +34,7 @@ public class InicioManager : MonoBehaviour
 
         if(timer >= 3)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
 
         //image.color = Color.Lerp(image.color, Color.clear, speed * Time.deltaTime);

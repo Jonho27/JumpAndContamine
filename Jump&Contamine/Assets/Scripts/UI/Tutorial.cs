@@ -16,7 +16,7 @@ public class Tutorial : MonoBehaviour
     private string[] frasesTutorial = new string[]{
 
         "Las plataformas naranjas contaminan mucho! Pero te impulsarán hacia arriba.",
-        "Las platafromas verdes ayudan al planeta. Cuidado que algunas contaminan.",
+        "Las plataformas verdes ayudan al planeta. Cuidado que algunas contaminan.",
         "Si la tormenta te pilla, puedes escapar con el jetpack. " +
         "El salvavidas te ayudara si caes al vacio.",
         "La contaminacioón te persigue. Tu decides si contaminar y que acelere.",

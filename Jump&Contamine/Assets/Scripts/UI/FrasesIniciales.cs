@@ -11,7 +11,7 @@ public class FrasesIniciales : MonoBehaviour
 
         "La temperatura media ha aumentado un 1.1ºC en los últimos años.",
         "6.000 millones de kilogramos de basura son arrojados al mar.",
-        "Groenlandia ya ha peridido más del 30% de su hielo.",
+        "Groenlandia ya ha perdido más del 30% de su hielo.",
         "Cada año desaparecen 8.8 millones de hectáreas de bosque.",
         "El 20% de las emisiones de efecto invernadero vienen de la deforestación."
             };

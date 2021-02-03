@@ -41,7 +41,7 @@ public class FrasesIniciales : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 5)
+        if (timer >= 7)
         {
 
             timer = 0;
@@ -50,7 +50,10 @@ public class FrasesIniciales : MonoBehaviour
 
             text.text = frasesIniciales[x];
             anterior = x;
+            if (ConfigScreen.efectosCompartir) { 
             audioSource.PlayOneShot(CambioFrase, 0.7F);
+            }
+
 
         }
     }

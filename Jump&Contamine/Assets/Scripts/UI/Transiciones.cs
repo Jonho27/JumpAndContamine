@@ -8,6 +8,7 @@ public class Transiciones : MonoBehaviour
 
     private float timer, limitTimer;
     private bool desactivarConfig, desactivarTutorial;
+    public GameObject background;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class Transiciones : MonoBehaviour
                 Configuración.SetActive(false);
                 desactivarConfig = false;
                 timer = 0;
+                background.SetActive(false);
             }
         }
 
@@ -38,6 +40,7 @@ public class Transiciones : MonoBehaviour
                 Tutorial.SetActive(false);
                 desactivarTutorial = false;
                 timer = 0;
+                background.SetActive(false);
             }
         }
     }
@@ -45,6 +48,7 @@ public class Transiciones : MonoBehaviour
     public void ActivarConfiguracion()
     {
         Configuración.SetActive(true);
+        background.SetActive(true);
     }
     public void DesactivarConfiguracion()
     {
@@ -54,6 +58,7 @@ public class Transiciones : MonoBehaviour
     public void ActivarTutorial()
     {
         Tutorial.SetActive(true);
+        background.SetActive(true);
     }
     public void DesactivarTutorial()
     {

@@ -1,17 +1,17 @@
 ﻿<Properties StartupConfiguration="{BE2AE2B9-C0DC-0BC0-61CA-E4FA7E9F40E4}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Transiciones.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Sounds/Sound.cs">
     <Files>
+      <File FileName="Assets/Scripts/UI/ConfigScreen.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/UI/Sounds/Sound.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/Configuración.cs" Line="54" Column="43" />
       <File FileName="Assets/Scripts/UI/FrasesIniciales.cs" />
       <File FileName="Assets/Scripts/UI/Tutorial.cs" />
       <File FileName="Assets/Scripts/UI/Sounds/AudioManager.cs" />
-      <File FileName="Assets/Scripts/UI/Transiciones.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/Transiciones.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a4c53adb-8057-40c4-985e-8b4dbbea3ddc" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7df098e9-9763-4ad7-8c42-689d74d9ae48" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

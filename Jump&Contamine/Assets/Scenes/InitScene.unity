@@ -134,8 +134,8 @@ GameObject:
   - component: {fileID: 12844806}
   - component: {fileID: 12844808}
   - component: {fileID: 12844807}
-  - component: {fileID: 12844809}
   - component: {fileID: 12844810}
+  - component: {fileID: 12844809}
   m_Layer: 5
   m_Name: "Configuraci\xF3n"
   m_TagString: Untagged
@@ -158,7 +158,7 @@ RectTransform:
   - {fileID: 790799465}
   - {fileID: 1457300132}
   m_Father: {fileID: 406947406}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -212,9 +212,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 12844805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90f884bfab3164388848975407a1f7af, type: 3}
+  m_Script: {fileID: 11500000, guid: 194d2767a916d40649255c7bb4467f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  botonesOpcionesMusica:
+  - {fileID: 1852589626}
+  - {fileID: 1627128308}
+  botonesOpcionesEfectos:
+  - {fileID: 1833738551}
+  - {fileID: 672527681}
+  audioSource: {fileID: 406947409}
 --- !u!95 &12844810
 Animator:
   serializedVersion: 3
@@ -478,6 +485,7 @@ GameObject:
   - component: {fileID: 260228023}
   - component: {fileID: 260228025}
   - component: {fileID: 260228024}
+  - component: {fileID: 260228026}
   m_Layer: 5
   m_Name: Principal
   m_TagString: Untagged
@@ -547,6 +555,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260228022}
   m_CullTransparentMesh: 0
+--- !u!95 &260228026
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260228022}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40b303b6e7a2043f59e1b1832264c44d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &303220149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303220152}
+  - component: {fileID: 303220151}
+  - component: {fileID: 303220150}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &303220150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303220149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &303220151
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303220149}
+  m_CullTransparentMesh: 0
+--- !u!224 &303220152
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303220149}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406947406}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &334392523
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +913,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 260228023}
+  - {fileID: 303220152}
   - {fileID: 12844806}
   - {fileID: 1800982357}
   m_Father: {fileID: 0}
@@ -1061,7 +1164,7 @@ GameObject:
   - component: {fileID: 423897177}
   - component: {fileID: 423897176}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Frase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1084,7 +1187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1449}
+  m_AnchoredPosition: {x: 1069, y: -1500}
   m_SizeDelta: {x: 913, y: 440}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &423897176
@@ -1426,7 +1529,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 12844809}
-        m_TargetAssemblyTypeName: "Configuracio\u0301n, Assembly-CSharp"
+        m_TargetAssemblyTypeName: ConfigScreen, Assembly-CSharp
         m_MethodName: ApagarSonidos
         m_Mode: 1
         m_Arguments:
@@ -1600,7 +1703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -812}
+  m_AnchoredPosition: {x: 0, y: -2057}
   m_SizeDelta: {x: 432.8982, y: 180.03711}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &742545912
@@ -4334,7 +4437,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 12844809}
-        m_TargetAssemblyTypeName: "Configuracio\u0301n, Assembly-CSharp"
+        m_TargetAssemblyTypeName: ConfigScreen, Assembly-CSharp
         m_MethodName: ApagarMusica
         m_Mode: 1
         m_Arguments:
@@ -4782,7 +4885,7 @@ RectTransform:
   m_Children:
   - {fileID: 372209334}
   m_Father: {fileID: 406947406}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4826,7 +4929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6313726}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4890,7 +4993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1833738552
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5013,7 +5116,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 12844809}
-        m_TargetAssemblyTypeName: "Configuracio\u0301n, Assembly-CSharp"
+        m_TargetAssemblyTypeName: ConfigScreen, Assembly-CSharp
         m_MethodName: ApagarSonidos
         m_Mode: 1
         m_Arguments:
@@ -5094,7 +5197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1852589627
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5217,7 +5320,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 12844809}
-        m_TargetAssemblyTypeName: "Configuracio\u0301n, Assembly-CSharp"
+        m_TargetAssemblyTypeName: ConfigScreen, Assembly-CSharp
         m_MethodName: ApagarMusica
         m_Mode: 1
         m_Arguments:
@@ -5388,6 +5491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "Configuraci\xF3n": {fileID: 12844805}
   Tutorial: {fileID: 1800982356}
+  background: {fileID: 303220149}
 --- !u!4 &1990307125
 Transform:
   m_ObjectHideFlags: 0

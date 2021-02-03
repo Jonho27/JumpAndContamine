@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Tutorial : MonoBehaviour
 {
 
-    public Button botonSiguiente;
+    public Button botonSiguiente, botonSalir;
     public GameObject[] imagenesTutoriales;
     public GameObject text1, text2, TutorialGM;
     public Text text;
@@ -27,6 +27,18 @@ public class Tutorial : MonoBehaviour
     {
         step = 0;
         
+    }
+
+    public void reiniciarTutorial()
+    {
+        imagenesTutoriales[imagenesTutoriales.Length-1].SetActive(false);
+        step = 0;
+        text.text = "CON ESTE VIDEOJUEGO PRETENDEMOS CONCIENCIAR SOBRE EL CÁMBIO CLIMÁTICO. ";
+        text1.SetActive(true);
+        text2.SetActive(true);
+        text.gameObject.SetActive(true);
+        botonSiguiente.gameObject.SetActive(true);
+        botonSalir.gameObject.SetActive(false);
     }
 
     public void siguiente()
@@ -54,12 +66,9 @@ public class Tutorial : MonoBehaviour
 
         if(step == 4)
         {
-            botonSiguiente.GetComponentInChildren<Text>().text = "SALIR";
-        }
+            botonSiguiente.gameObject.SetActive(false);
+            botonSalir.gameObject.SetActive(true);
 
-        if (step == 5)
-        {
-            TutorialGM.SetActive(false);
         }
         step++;
     }

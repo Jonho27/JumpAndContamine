@@ -160,24 +160,15 @@ public class playerController : MonoBehaviour
 
         if (muerto)
         {
+
+            GasMovement.speed = 0;
             timer2 += Time.deltaTime;
             if (timer2 >= 2f)
             {
-                if (transform.position.y <= 20) { DeathTextManager.caso = 50; }
-                if (transform.position.y > 20 && transform.position.y <= 50) { DeathTextManager.caso = 100; }
-                if (transform.position.y > 50 && transform.position.y <= 100) { DeathTextManager.caso = 120; }
-                if (transform.position.y > 100 && transform.position.y <= 800) { DeathTextManager.caso = 200; }
-                if (transform.position.y > 800 && transform.position.y <= 1500) { DeathTextManager.caso = 250; }
-                if (transform.position.y > 1500 && transform.position.y <= 2200) { DeathTextManager.caso = 300; }
-                if (transform.position.y > 2200 && transform.position.y <= 4000) { DeathTextManager.caso = 470; }
-                if (transform.position.y > 4000) { DeathTextManager.caso = 700; }
-
+                DeathTextManager.storm = true;
+                DeathTextManager.caso = true;
             }
 
-            if (timer2 >= 4.2f)
-            {
-                GasMovement.speed = 0;
-            }
         }
 
 

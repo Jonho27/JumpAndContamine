@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Transiciones : MonoBehaviour
 {
-    public GameObject Configuración, Tutorial;
+    public GameObject Configuración, Tutorial, Personajes;
 
     private float timer, limitTimer;
-    private bool desactivarConfig, desactivarTutorial;
+    private bool desactivarConfig, desactivarTutorial, desactivarPersonajes;
+    private static int elección;
     public GameObject background;
+    public Button botonChico, botonChica;
 
     private void Start()
     {
@@ -16,6 +20,8 @@ public class Transiciones : MonoBehaviour
         limitTimer = 1f;
         desactivarConfig = false;
         desactivarTutorial = false;
+        desactivarPersonajes = false;
+        elección = 0;
     }
 
     private void Update()
@@ -43,6 +49,18 @@ public class Transiciones : MonoBehaviour
                 background.SetActive(false);
             }
         }
+
+        if (desactivarPersonajes)
+        {
+            timer += Time.deltaTime;
+            if (timer > limitTimer)
+            {
+                Personajes.SetActive(false);
+                desactivarPersonajes = false;
+                timer = 0;
+                background.SetActive(false);
+            }
+        }
     }
 
     public void ActivarConfiguracion()
@@ -63,5 +81,38 @@ public class Transiciones : MonoBehaviour
     public void DesactivarTutorial()
     {
         desactivarTutorial = true;
+    }
+
+    public void ActivarPersonajes()
+    {
+        Personajes.SetActive(true);
+        background.SetActive(true);
+    }
+
+    public void DesactivarPersonajes()
+    {
+        desactivarPersonajes = true;
+    }
+
+    public void SeleccionPersonajeChico()
+    {
+        //CHICO = 0
+        botonChica.interactable = false;
+        elección = 0;
+        //SceneManager.LoadScene(1);
+
+        Debug.Log("CHICO");
+
+    }
+
+    public void SeleccionPersonajeChica()
+    {
+        //CHICO = 1
+        botonChico.interactable = false;
+        elección = 1;
+        Debug.Log("CHICA");
+
+        //SceneManager.LoadScene(1);
+
     }
 }

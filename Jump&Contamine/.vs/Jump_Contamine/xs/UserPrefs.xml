@@ -1,18 +1,19 @@
-﻿<Properties StartupConfiguration="{BE2AE2B9-C0DC-0BC0-61CA-E4FA7E9F40E4}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Sounds/AudioManager.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DeathTextManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/InicioManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/Tutorial.cs" />
+      <File FileName="Assets/Scripts/playerController.cs" Line="212" Column="35" />
+      <File FileName="Assets/Scripts/DeathTextManager.cs" Line="80" Column="16" />
+      <File FileName="Assets/Scripts/InicioManager.cs" Line="37" Column="13" />
+      <File FileName="Assets/Scripts/UI/Tutorial.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/UI/ConfigScreen.cs" />
       <File FileName="Assets/Scripts/UI/Sounds/Sound.cs" />
       <File FileName="Assets/Scripts/UI/FrasesIniciales.cs" />
-      <File FileName="Assets/Scripts/UI/Sounds/AudioManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/Transiciones.cs" />
+      <File FileName="Assets/Scripts/UI/Sounds/AudioManager.cs" />
+      <File FileName="Assets/Scripts/UI/Transiciones.cs" Line="116" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="51e7ce47-b63c-433d-8155-2213cb53ab09" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

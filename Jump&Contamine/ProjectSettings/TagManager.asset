@@ -15,6 +15,7 @@ TagManager:
   - End
   - HaLlegado
   - levelPrefab
+  - GameManager
   layers:
   - Default
   - TransparentFX

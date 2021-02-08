@@ -38,6 +38,8 @@ public class playerController : MonoBehaviour
     private bool muerto;
     private float timer2;
 
+    CanvasController canvasController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +60,8 @@ public class playerController : MonoBehaviour
         jetpack = false;
         canMove = true;
         timer2 = 0f;
+
+        canvasController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<CanvasController>();
 
         //Instantiate(elPrefab, prueba.transform);
         todasLasPlataformas = GameObject.FindGameObjectsWithTag("Plataforma");  //returns GameObject[]
@@ -287,7 +291,7 @@ public class playerController : MonoBehaviour
             //soundManager.PlaySound("impulso");
             impulsoContaminante = true;
             keyHit = false;
-            Contamine4Controller.activo = true;
+            canvasController.activarContaminar4();
 
         }
     }
@@ -326,7 +330,7 @@ public class playerController : MonoBehaviour
                 GasMovement.speed = 6.5f;
             }
             GasMovement.speed += 0.4f;
-            ContamineController.activo = true;
+            canvasController.activarContaminar();
         }
 
         if (collider.gameObject.tag == "ConPlataforma" && !propulsado && !elevado && !impulsoContaminante)
@@ -345,7 +349,7 @@ public class playerController : MonoBehaviour
             {
                 GasMovement.speed = 1f;
             }
-            RecycleController.activo = true;
+            canvasController.activarRecycle();
         }
 
         if (collider.gameObject.tag == "Vacio" && !caida && !propulsado && !elevado && !impulsoContaminante)
@@ -400,7 +404,7 @@ public class playerController : MonoBehaviour
                 {
                     GasMovement.speed = 6.5f;
                 }
-                Contamine8Controller.activo = true;
+                canvasController.activarContaminar8();
                 jetpack = false;
             }
 

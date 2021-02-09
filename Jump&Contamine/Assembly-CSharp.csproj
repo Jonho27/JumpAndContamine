@@ -67,10 +67,7 @@
     <Compile Include="Assets\Scripts\GasMovement.cs" />
     <Compile Include="Assets\Scripts\playerController.cs" />
     <Compile Include="Assets\Scripts\backgroundMovement.cs" />
-    <Compile Include="Assets\Scripts\RecycleController.cs" />
-    <Compile Include="Assets\Scripts\ContamineController.cs" />
     <Compile Include="Assets\Scripts\mainMenu.cs" />
-    <Compile Include="Assets\Scripts\Contamine4Controller.cs" />
     <Compile Include="Assets\Scripts\UI\Transiciones.cs" />
     <Compile Include="Assets\Scripts\screenResolution.cs" />
     <Compile Include="Assets\Scripts\PutLevels.cs" />
@@ -78,7 +75,6 @@
     <Compile Include="Assets\Scripts\UI\Sounds\Sound.cs" />
     <Compile Include="Assets\Scripts\UI\Tutorial.cs" />
     <Compile Include="Assets\Scripts\DeathTextManager.cs" />
-    <Compile Include="Assets\Scripts\Contamine8Controller.cs" />
     <Compile Include="Assets\Scripts\CanvasController.cs" />
   </ItemGroup>
   <ItemGroup>

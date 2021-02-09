@@ -39,6 +39,7 @@ public class playerController : MonoBehaviour
     private float timer2;
 
     CanvasController canvasController;
+    GasMovement gas;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +63,7 @@ public class playerController : MonoBehaviour
         timer2 = 0f;
 
         canvasController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<CanvasController>();
+        gas = GameObject.FindGameObjectWithTag("Gas").GetComponent<GasMovement>();
 
         //Instantiate(elPrefab, prueba.transform);
         todasLasPlataformas = GameObject.FindGameObjectsWithTag("Plataforma");  //returns GameObject[]
@@ -150,13 +152,13 @@ public class playerController : MonoBehaviour
                 impulsoContaminante = false;
                 timer = 0f;
                 caida = true;
-                if (GasMovement.speed + 0.8f <= 6.5)
+                if (gas.speed + 0.8f <= 6.5)
                 {
-                    GasMovement.speed += 0.8f;
+                    gas.speed += 0.8f;
                 }
                 else
                 {
-                    GasMovement.speed = 6.5f;
+                    gas.speed = 6.5f;
                 }
                 
             }
@@ -165,7 +167,7 @@ public class playerController : MonoBehaviour
         if (muerto)
         {
 
-            GasMovement.speed = 0;
+            gas.speed = 0;
             timer2 += Time.deltaTime;
             if (timer2 >= 2f)
             {
@@ -266,10 +268,32 @@ public class playerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        caer();
+        /*caer();
         propulsar();
         elevar();
-        contaminar();
+        contaminar();*/
+
+        if (caida)
+        {
+            transform.Translate(fall * speed * Time.deltaTime);
+        }
+
+        if (propulsado)
+        {
+            transform.Translate(up * speed * Time.deltaTime);
+        }
+
+        if (elevado)
+        {
+            transform.Translate(up * speed * Time.deltaTime);
+        }
+
+        if (impulsoContaminante)
+        {
+            transform.Translate(up * speed * Time.deltaTime);
+        }
+
+
     }
 
 
@@ -321,15 +345,15 @@ public class playerController : MonoBehaviour
 
         if (collider.gameObject.tag == "ConPlataforma" && !caida)
         {
-            if (GasMovement.speed + 0.4f <= 6.5)
+            if (gas.speed + 0.4f <= 6.5)
             {
-                GasMovement.speed += 0.4f;
+                gas.speed += 0.4f;
             }
             else
             {
-                GasMovement.speed = 6.5f;
+                gas.speed = 6.5f;
             }
-            GasMovement.speed += 0.4f;
+            gas.speed += 0.4f;
             canvasController.activarContaminar();
         }
 
@@ -341,13 +365,13 @@ public class playerController : MonoBehaviour
         if (collider.gameObject.tag == "Reciclable" && !caida)
         {
             soundManager.PlaySound("positivo");
-            if (GasMovement.speed - 0.4f >= 1)
+            if (gas.speed - 0.4f >= 1)
             {
-                GasMovement.speed -= 0.4f;
+                gas.speed -= 0.4f;
             }
             else
             {
-                GasMovement.speed = 1f;
+                gas.speed = 1f;
             }
             canvasController.activarRecycle();
         }
@@ -360,6 +384,15 @@ public class playerController : MonoBehaviour
                 elevado = true;
                 keyHit = false;
                 globo = false;
+                if (gas.speed + 1.2f <= 6.5)
+                {
+                    gas.speed += 1.2f;
+                }
+                else
+                {
+                    gas.speed = 6.5f;
+                }
+                canvasController.activarContaminar8();
             }
 
             else
@@ -370,14 +403,14 @@ public class playerController : MonoBehaviour
             
         }
 
-        if (collider.gameObject.tag == "Jetpack" && !elevado && !impulsoContaminante)
+        if (collider.gameObject.tag == "Globo" && !elevado && !impulsoContaminante)//El tag es jetpack y no globo porque decidimos que sus funciones se iban a intercambiar
         {
             soundManager.PlaySound("globo");
             jetpack = true;
             collider.gameObject.SetActive(false);
         }
 
-        if (collider.gameObject.tag == "Globo" && !propulsado && !impulsoContaminante)
+        if (collider.gameObject.tag == "Jetpack" && !propulsado && !impulsoContaminante)
         {
             soundManager.PlaySound("globo");
             globo = true;
@@ -388,23 +421,24 @@ public class playerController : MonoBehaviour
         {
             if (jetpack)
             {
-                if (caida)
+                /*if (caida)
                 {
                     caida = false;
-                }
+                }*/
                 soundManager.PlaySound("propulsion");
                 Debug.Log("Propulsado");
-                propulsado = true;
+                //propulsado = true;
                 keyHit = false;
-                if (GasMovement.speed + 1.2f <= 6.5)
+                gas.salvavidas();
+                /*if (gas.speed + 1.2f <= 6.5)
                 {
-                    GasMovement.speed += 1.2f;
+                    gas.speed += 1.2f;
                 }
                 else
                 {
-                    GasMovement.speed = 6.5f;
+                    gas.speed = 6.5f;
                 }
-                canvasController.activarContaminar8();
+                canvasController.activarContaminar8();*/
                 jetpack = false;
             }
 
@@ -415,7 +449,7 @@ public class playerController : MonoBehaviour
                 Debug.Log("Muerto");
                 myAnimator.SetBool("dead",true);
                 muerto = true;
-                GasMovement.speed = 3f;
+                gas.speed = 3f;
                 
             }
             
@@ -431,7 +465,7 @@ public class playerController : MonoBehaviour
 
     }
 
-    private void caer()
+    /*private void caer()
     {
         if (caida)
         {
@@ -461,6 +495,6 @@ public class playerController : MonoBehaviour
         {
             transform.Translate(up * speed * Time.deltaTime);
         }
-    }
+    }*/
 
 }

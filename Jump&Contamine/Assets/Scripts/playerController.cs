@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-    public GameObject gameOverWin;
     [HideInInspector] public static bool canMove;
 
     public GameObject elPrefab;
     public GameObject[] todasLasPlataformas;
+    public GameObject SalvavidasUI, JetpackUI;
     public bool llegada;
     float fallo;
 
@@ -32,7 +32,7 @@ public class playerController : MonoBehaviour
 
     public bool impulsoContaminante;
     public bool jetpack;
-
+    
     private Animator myAnimator;
 
     private bool muerto;
@@ -328,7 +328,7 @@ public class playerController : MonoBehaviour
         }
         if (collider.gameObject.tag == "End")
         {
-            gameOverWin.SetActive(true);
+
             canMove = false;
         }
         if (collider.gameObject.tag == "HaLlegado")
@@ -384,6 +384,7 @@ public class playerController : MonoBehaviour
                 elevado = true;
                 keyHit = false;
                 globo = false;
+                JetpackUI.SetActive(false);
                 if (gas.speed + 1.2f <= 6.5)
                 {
                     gas.speed += 1.2f;
@@ -405,6 +406,8 @@ public class playerController : MonoBehaviour
 
         if (collider.gameObject.tag == "Globo" && !elevado && !impulsoContaminante)//El tag es jetpack y no globo porque decidimos que sus funciones se iban a intercambiar
         {
+            SalvavidasUI.SetActive(true);
+            Debug.Log("power");
             soundManager.PlaySound("globo");
             jetpack = true;
             collider.gameObject.SetActive(false);
@@ -414,6 +417,7 @@ public class playerController : MonoBehaviour
         {
             soundManager.PlaySound("globo");
             globo = true;
+            JetpackUI.SetActive(true);
             collider.gameObject.SetActive(false);
         }
 
@@ -440,6 +444,7 @@ public class playerController : MonoBehaviour
                 }
                 canvasController.activarContaminar8();*/
                 jetpack = false;
+                SalvavidasUI.SetActive(false);
             }
 
             else

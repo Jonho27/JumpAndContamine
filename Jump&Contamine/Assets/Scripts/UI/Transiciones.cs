@@ -99,7 +99,7 @@ public class Transiciones : MonoBehaviour
         //CHICO = 0
         botonChica.interactable = false;
         elección = 0;
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
 
         Debug.Log("CHICO");
 
@@ -112,7 +112,7 @@ public class Transiciones : MonoBehaviour
         elección = 1;
         Debug.Log("CHICA");
 
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
 
     }
 }

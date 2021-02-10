@@ -4369,7 +4369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1090909100
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5257,9 +5257,9 @@ MonoBehaviour:
           m_StringArgument: Boton
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1090909104}
-        m_TargetAssemblyTypeName: AccionesHippogames, Assembly-CSharp
-        m_MethodName: Reiniciar
+      - m_Target: {fileID: 1990307124}
+        m_TargetAssemblyTypeName: Transiciones, Assembly-CSharp
+        m_MethodName: DesactivarAcciones
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5948,6 +5948,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Boton
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1990307124}
+        m_TargetAssemblyTypeName: Transiciones, Assembly-CSharp
+        m_MethodName: ActivarAcciones
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1090909104}
+        m_TargetAssemblyTypeName: AccionesHippogames, Assembly-CSharp
+        m_MethodName: Reiniciar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1380316306
@@ -8110,7 +8134,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Publica tu resultado con el hastag #CambioClim\xE1ticoHGS"
+  m_Text: "Y publica tu resultado con el hastag #CambioClim\xE1ticoHGS"
 --- !u!222 &1804019720
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8806,7 +8830,7 @@ MonoBehaviour:
   "Configuraci\xF3n": {fileID: 12844805}
   Tutorial: {fileID: 1800982356}
   Personajes: {fileID: 2036966500}
-  Acciones: {fileID: 0}
+  Acciones: {fileID: 1090909099}
   background: {fileID: 303220149}
   botonChico: {fileID: 735362597}
   botonChica: {fileID: 103590544}

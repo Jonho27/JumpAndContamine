@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class Transiciones : MonoBehaviour
 {
-    public GameObject Configuración, Tutorial, Personajes;
+    public GameObject Configuración, Tutorial, Personajes, Acciones;
 
     private float timer, limitTimer;
-    private bool desactivarConfig, desactivarTutorial, desactivarPersonajes;
+    private bool desactivarConfig, desactivarTutorial, desactivarPersonajes, descativarAcciones;
     private static int elección;
     public GameObject background;
     public Button botonChico, botonChica;
@@ -21,6 +21,7 @@ public class Transiciones : MonoBehaviour
         desactivarConfig = false;
         desactivarTutorial = false;
         desactivarPersonajes = false;
+        descativarAcciones = false;
         elección = 0;
     }
 
@@ -61,6 +62,18 @@ public class Transiciones : MonoBehaviour
                 background.SetActive(false);
             }
         }
+
+        if (descativarAcciones)
+        {
+            timer += Time.deltaTime;
+            if (timer > limitTimer)
+            {
+                Acciones.SetActive(false);
+                descativarAcciones = false;
+                timer = 0;
+                background.SetActive(false);
+            }
+        }
     }
 
     public void ActivarConfiguracion()
@@ -71,6 +84,16 @@ public class Transiciones : MonoBehaviour
     public void DesactivarConfiguracion()
     {
         desactivarConfig = true;
+    }
+
+    public void ActivarAcciones()
+    {
+        Acciones.SetActive(true);
+        background.SetActive(true);
+    }
+    public void DesactivarAcciones()
+    {
+        descativarAcciones = true;
     }
 
     public void ActivarTutorial()

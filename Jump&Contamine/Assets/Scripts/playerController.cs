@@ -47,7 +47,7 @@ public class playerController : MonoBehaviour
     {
         llegada = false;
         fallo = 0f;
-
+        empiezaGas = false;
         position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         myAnimator = GetComponent<Animator>();
         muerto = false;

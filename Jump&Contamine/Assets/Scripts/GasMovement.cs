@@ -35,7 +35,11 @@ public class GasMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate(move * speed * Time.deltaTime);
+        if (playerController.empiezaGas)
+        {
+            transform.Translate(move * speed * Time.deltaTime);
+        }
+        
     }
 
     public void salvavidas()

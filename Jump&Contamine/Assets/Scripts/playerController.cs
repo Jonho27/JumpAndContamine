@@ -11,7 +11,8 @@ public class playerController : MonoBehaviour
     public GameObject SalvavidasUI, JetpackUI;
     public bool llegada;
     float fallo;
-
+    public static bool empiezaGas;
+    public float desplazamientoRecolocacion;
 
     public GameObject player;
     private Vector3 position;
@@ -65,7 +66,7 @@ public class playerController : MonoBehaviour
         canvasController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<CanvasController>();
         gas = GameObject.FindGameObjectWithTag("Gas").GetComponent<GasMovement>();
 
-        //Instantiate(elPrefab, prueba.transform);
+        /*//Instantiate(elPrefab, prueba.transform);
         todasLasPlataformas = GameObject.FindGameObjectsWithTag("Plataforma");  //returns GameObject[]
         foreach (GameObject objeto in todasLasPlataformas)
         {
@@ -88,7 +89,7 @@ public class playerController : MonoBehaviour
         foreach (GameObject objeto in todasLasPlataformas)
         {
             Instantiate(elPrefab, objeto.transform);
-        }
+        }*/
 
     }
 
@@ -103,7 +104,7 @@ public class playerController : MonoBehaviour
 
         if (keyHit)
         {
-
+            empiezaGas = true;
             player.transform.position = Vector3.Lerp(player.transform.position, position, 0.1f);
             if(player.transform.position == position)
             {
@@ -339,7 +340,7 @@ public class playerController : MonoBehaviour
 
         if ((collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable" || collider.gameObject.tag == "ConPlataforma" || collider.gameObject.tag == "Contaminante") && caida)
         {
-            transform.position = new Vector3(collider.gameObject.transform.position.x + 0.5f, collider.gameObject.transform.position.y + 1f, transform.position.z);
+            transform.position = new Vector3(collider.gameObject.transform.position.x + desplazamientoRecolocacion, collider.gameObject.transform.position.y + 1f, transform.position.z);
             caida = false;    
         }
 

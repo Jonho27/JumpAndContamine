@@ -10,7 +10,6 @@ public class Transiciones : MonoBehaviour
 
     private float timer, limitTimer;
     private bool desactivarConfig, desactivarTutorial, desactivarPersonajes, descativarAcciones;
-    private static int elección;
     public GameObject background;
     public Button botonChico, botonChica;
 
@@ -22,7 +21,6 @@ public class Transiciones : MonoBehaviour
         desactivarTutorial = false;
         desactivarPersonajes = false;
         descativarAcciones = false;
-        elección = 0;
     }
 
     private void Update()
@@ -121,7 +119,8 @@ public class Transiciones : MonoBehaviour
     {
         //CHICO = 0
         botonChica.interactable = false;
-        elección = 0;
+        
+        ChicoChica.seleccion = 0;
         SceneManager.LoadScene(1);
 
         Debug.Log("CHICO");
@@ -132,7 +131,8 @@ public class Transiciones : MonoBehaviour
     {
         //CHICO = 1
         botonChico.interactable = false;
-        elección = 1;
+        
+        ChicoChica.seleccion = 1;
         Debug.Log("CHICA");
 
         SceneManager.LoadScene(1);

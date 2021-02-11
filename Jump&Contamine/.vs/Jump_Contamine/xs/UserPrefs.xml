@@ -1,22 +1,24 @@
 ﻿<Properties StartupConfiguration="{BE2AE2B9-C0DC-0BC0-61CA-E4FA7E9F40E4}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Transiciones.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/cameraController.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/AccionesHippogames.cs" Line="10" Column="1" />
-      <File FileName="Assets/Scripts/playerController.cs" Line="383" Column="39" />
+      <File FileName="Assets/Scripts/ChicoChica.cs" Line="20" Column="33" />
+      <File FileName="Assets/Scripts/UI/AccionesHippogames.cs" />
+      <File FileName="Assets/Scripts/playerController.cs" />
       <File FileName="Assets/Scripts/DeathTextManager.cs" />
       <File FileName="Assets/Scripts/InicioManager.cs" />
-      <File FileName="Assets/Scripts/UI/Tutorial.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/ConfigScreen.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/Tutorial.cs" />
+      <File FileName="Assets/Scripts/UI/ConfigScreen.cs" />
       <File FileName="Assets/Scripts/UI/Sounds/Sound.cs" />
       <File FileName="Assets/Scripts/UI/FrasesIniciales.cs" />
       <File FileName="Assets/Scripts/UI/Sounds/AudioManager.cs" />
-      <File FileName="Assets/Scripts/UI/Transiciones.cs" Line="72" Column="35" />
+      <File FileName="Assets/Scripts/UI/Transiciones.cs" Line="23" Column="36" />
       <File FileName="Assets/Scripts/CanvasController.cs" />
+      <File FileName="Assets/Scripts/cameraController.cs" Line="8" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="027013fd-7a4e-4812-9fd2-9d21fa52a7be" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5abb7cb7-77f1-4d74-aeeb-13d6904b070d" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

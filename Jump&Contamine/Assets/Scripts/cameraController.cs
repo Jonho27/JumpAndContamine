@@ -5,7 +5,7 @@ using UnityEngine;
 public class cameraController : MonoBehaviour
 {
 
-    public GameObject player;
+    public GameObject player1, player2;
     Vector3 desiredPosition;
     float smoothSpeed = 10f;
     public Vector3 offset;
@@ -20,16 +20,35 @@ public class cameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z) + offset;
-        size = 47.3f;
+        if(ChicoChica.seleccion == 0)
+        {
+            transform.position = new Vector3(transform.position.x, player1.transform.position.y, transform.position.z) + offset;
+            size = 47.3f;
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, player2.transform.position.y, transform.position.z) + offset;
+            size = 47.3f;
+        }
+
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        desiredPosition = new Vector3(transform.position.x, player.transform.position.y, transform.position.z) + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-        transform.position = smoothedPosition;
+        if (ChicoChica.seleccion == 0)
+        {
+            desiredPosition = new Vector3(transform.position.x, player1.transform.position.y, transform.position.z) + offset;
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+            transform.position = smoothedPosition;
+        }
+        else
+        {
+            desiredPosition = new Vector3(transform.position.x, player2.transform.position.y, transform.position.z) + offset;
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+            transform.position = smoothedPosition;
+        }
+
     }
 
     private void Update()

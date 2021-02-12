@@ -97,6 +97,7 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (canMove)
         {
             Move();
@@ -153,13 +154,17 @@ public class playerController : MonoBehaviour
                 impulsoContaminante = false;
                 timer = 0f;
                 caida = true;
-                if (gas.speed + 0.8f <= 6.5)
+                if (gas.speed + 1.2f < 6)
+                {
+                    gas.speed += 3f;
+                }
+                else if (gas.speed + 0.8f <= 10f)
                 {
                     gas.speed += 0.8f;
                 }
                 else
                 {
-                    gas.speed = 6.5f;
+                    gas.speed = 10f;
                 }
                 
             }
@@ -346,13 +351,18 @@ public class playerController : MonoBehaviour
 
         if (collider.gameObject.tag == "ConPlataforma" && !caida)
         {
-            if (gas.speed + 0.4f <= 6.5)
+
+            if (gas.speed + 1.2f < 6)
+            {
+                gas.speed += 3f;
+            }
+            else if (gas.speed + 0.4f <= 10f)
             {
                 gas.speed += 0.4f;
             }
             else
             {
-                gas.speed = 6.5f;
+                gas.speed = 10f;
             }
             gas.speed += 0.4f;
             canvasController.activarContaminar();
@@ -366,9 +376,11 @@ public class playerController : MonoBehaviour
         if (collider.gameObject.tag == "Reciclable" && !caida)
         {
             soundManager.PlaySound("positivo");
+
             if (gas.speed - 0.4f >= 1)
             {
-                gas.speed -= 0.4f;
+                float speedTemporal = Random.Range(0.3f, 0.51f);
+                gas.speed -= speedTemporal;
             }
             else
             {
@@ -386,13 +398,18 @@ public class playerController : MonoBehaviour
                 keyHit = false;
                 globo = false;
                 JetpackUI.SetActive(false);
-                if (gas.speed + 1.2f <= 6.5)
+
+                if (gas.speed + 1.2f < 6)
+                {
+                    gas.speed += 3f;
+                }
+                else if (gas.speed + 1.2f <= 10f)
                 {
                     gas.speed += 1.2f;
                 }
                 else
                 {
-                    gas.speed = 6.5f;
+                    gas.speed = 10f;
                 }
                 canvasController.activarContaminar8();
             }
@@ -407,19 +424,26 @@ public class playerController : MonoBehaviour
 
         if (collider.gameObject.tag == "Globo" && !elevado && !impulsoContaminante)//El tag es jetpack y no globo porque decidimos que sus funciones se iban a intercambiar
         {
-            SalvavidasUI.SetActive(true);
-            Debug.Log("power");
-            soundManager.PlaySound("globo");
-            jetpack = true;
-            collider.gameObject.SetActive(false);
+            if (!jetpack)
+            {
+                SalvavidasUI.SetActive(true);
+                Debug.Log("power");
+                soundManager.PlaySound("globo");
+                jetpack = true;
+                collider.gameObject.SetActive(false);
+            }
+
         }
 
         if (collider.gameObject.tag == "Jetpack" && !propulsado && !impulsoContaminante)
         {
-            soundManager.PlaySound("globo");
-            globo = true;
-            JetpackUI.SetActive(true);
-            collider.gameObject.SetActive(false);
+            if (!globo)
+            {
+                soundManager.PlaySound("globo");
+                globo = true;
+                JetpackUI.SetActive(true);
+                collider.gameObject.SetActive(false);
+            }
         }
 
         if (collider.gameObject.tag == "Gas")

@@ -154,7 +154,7 @@ public class playerController : MonoBehaviour
                 impulsoContaminante = false;
                 timer = 0f;
                 caida = true;
-                if (gas.speed + 1.2f < 6)
+                /*if (gas.speed + 1.2f < 6)
                 {
                     gas.speed += 3f;
                 }
@@ -165,7 +165,8 @@ public class playerController : MonoBehaviour
                 else
                 {
                     gas.speed = 10f;
-                }
+                }*/
+                gas.contamine4();
                 
             }
         }
@@ -349,10 +350,10 @@ public class playerController : MonoBehaviour
             caida = false;    
         }
 
-        if (collider.gameObject.tag == "ConPlataforma" && !caida)
+        if (collider.gameObject.tag == "ConPlataforma" && !caida && !propulsado && !elevado && !impulsoContaminante)
         {
 
-            if (gas.speed + 1.2f < 6)
+            /*if (gas.speed + 1.2f < 6)
             {
                 gas.speed += 3f;
             }
@@ -363,21 +364,22 @@ public class playerController : MonoBehaviour
             else
             {
                 gas.speed = 10f;
-            }
-            gas.speed += 0.4f;
+            }*/
+            gas.contamine();
             canvasController.activarContaminar();
-        }
-
-        if (collider.gameObject.tag == "ConPlataforma" && !propulsado && !elevado && !impulsoContaminante)
-        {
             soundManager.PlaySound("negativo");
         }
 
-        if (collider.gameObject.tag == "Reciclable" && !caida)
+        /*if (collider.gameObject.tag == "ConPlataforma" && !propulsado && !elevado && !impulsoContaminante)
+        {
+            soundManager.PlaySound("negativo");
+        }*/
+
+        if (collider.gameObject.tag == "Reciclable" && !caida && !elevado && !impulsoContaminante)
         {
             soundManager.PlaySound("positivo");
 
-            if (gas.speed - 0.4f >= 1)
+            /*if (gas.speed - 0.4f >= 1)
             {
                 float speedTemporal = Random.Range(0.3f, 0.51f);
                 gas.speed -= speedTemporal;
@@ -385,7 +387,8 @@ public class playerController : MonoBehaviour
             else
             {
                 gas.speed = 1f;
-            }
+            }*/
+            gas.recycle();
             canvasController.activarRecycle();
         }
 
@@ -399,7 +402,7 @@ public class playerController : MonoBehaviour
                 globo = false;
                 JetpackUI.SetActive(false);
 
-                if (gas.speed + 1.2f < 6)
+                /*if (gas.speed + 1.2f < 6)
                 {
                     gas.speed += 3f;
                 }
@@ -410,7 +413,8 @@ public class playerController : MonoBehaviour
                 else
                 {
                     gas.speed = 10f;
-                }
+                }*/
+                gas.contamine8();
                 canvasController.activarContaminar8();
             }
 

@@ -45,8 +45,81 @@ public class GasMovement : MonoBehaviour
     public void salvavidas()
     {
         speedAux = speed;
-        speed = -6.5f;
+        speed = -10f;
         salvavidasActivo = true;
         //transform.Translate(transform.position.x, transform.position.y + 10, transform.position.z);
+    }
+
+    public void contamine()
+    {
+        if (!salvavidasActivo)
+        {
+            if (speed + 1.2f < 3)
+            {
+                speed += 3f;
+            }
+            else if (speed + 0.4f <= 10f)
+            {
+                speed += 0.4f;
+            }
+            else
+            {
+                speed = 10f;
+            }
+        }   
+    }
+
+    public void contamine4()
+    {
+        if (!salvavidasActivo)
+        {
+            if (speed + 1.2f < 3)
+            {
+                speed += 3f;
+            }
+            else if (speed + 0.8f <= 10f)
+            {
+                speed += 0.8f;
+            }
+            else
+            {
+                speed = 10f;
+            }
+        }  
+    }
+
+    public void contamine8()
+    {
+        if (!salvavidasActivo)
+        {
+            if (speed + 1.2f < 3)
+            {
+                speed += 3f;
+            }
+            else if (speed + 1.2f <= 10f)
+            {
+                speed += 1.2f;
+            }
+            else
+            {
+                speed = 10f;
+            }
+        }  
+    }
+
+    public void recycle()
+    {
+        if (!salvavidasActivo)
+        {
+            if (speed - 0.4f >= 1)
+            {
+                float speedTemporal = Random.Range(0.3f, 0.51f);
+                speed -= speedTemporal;
+            }
+            else
+            {
+                speed = 1f;
+            }
+        } 
     }
 }

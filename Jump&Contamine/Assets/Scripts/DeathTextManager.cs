@@ -77,7 +77,7 @@ public class DeathTextManager : MonoBehaviour
 
     public void Salir()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
 

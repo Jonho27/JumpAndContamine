@@ -8,13 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaCarga.unity
     guid: f6084d182cf48475a9fb69213bc79df8
-  - enabled: 0
-    path: Assets/Scenes/Menu.unity
-    guid: 1726028a7d076f246a35188f68d18c14
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/InitScene.unity
     guid: 222da517d6bbb401dbcd21c60de05d09
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

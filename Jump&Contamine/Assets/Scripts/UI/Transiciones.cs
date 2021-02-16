@@ -121,9 +121,6 @@ public class Transiciones : MonoBehaviour
         botonChica.interactable = false;
         
         ChicoChica.seleccion = 0;
-        SceneManager.LoadScene(1);
-
-        Debug.Log("CHICO");
 
     }
 
@@ -133,9 +130,5 @@ public class Transiciones : MonoBehaviour
         botonChico.interactable = false;
         
         ChicoChica.seleccion = 1;
-        Debug.Log("CHICA");
-
-        SceneManager.LoadScene(1);
-
     }
 }

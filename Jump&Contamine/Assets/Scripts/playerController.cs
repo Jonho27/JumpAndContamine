@@ -41,7 +41,8 @@ public class playerController : MonoBehaviour
     private float timer2;
 
     CanvasController canvasController;
-    GasMovement gas;
+    //GasMovement gas;
+    GasMovement2 gas;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +66,8 @@ public class playerController : MonoBehaviour
         timer2 = 0f;
 
         canvasController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<CanvasController>();
-        gas = GameObject.FindGameObjectWithTag("Gas").GetComponent<GasMovement>();
+        //gas = GameObject.FindGameObjectWithTag("Gas").GetComponent<GasMovement>();
+        gas = GameObject.FindGameObjectWithTag("Gas").GetComponent<GasMovement2>();
 
         /*//Instantiate(elPrefab, prueba.transform);
         todasLasPlataformas = GameObject.FindGameObjectsWithTag("Plataforma");  //returns GameObject[]

@@ -1,18 +1,18 @@
 ﻿<Properties StartupConfiguration="{BE2AE2B9-C0DC-0BC0-61CA-E4FA7E9F40E4}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/LevelLoader.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DeathTextManager.cs">
     <Files>
       <File FileName="Assets/Scripts/UI/LevelLoader.cs" Line="20" Column="77" />
-      <File FileName="Assets/Scripts/UI/Transiciones.cs" Line="132" Column="34" />
+      <File FileName="Assets/Scripts/UI/Transiciones.cs" />
       <File FileName="Assets/Scripts/ChicoChica.cs" />
       <File FileName="Assets/Scripts/UI/AccionesHippogames.cs" />
       <File FileName="Assets/Scripts/playerController.cs" />
-      <File FileName="Assets/Scripts/DeathTextManager.cs" />
+      <File FileName="Assets/Scripts/DeathTextManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/returnMenu.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5806a877-6141-45b0-b2f0-f5791b618498" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="abda3b18-c37e-4bac-a993-2eb3872e878f" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

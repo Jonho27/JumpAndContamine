@@ -12,6 +12,7 @@ public class playerController : MonoBehaviour
     public bool llegada;
     float fallo;
     public static bool empiezaGas;
+    public static float gasbarSpeed;
     public float desplazamientoRecolocacion;
 
     public GameObject player;
@@ -97,6 +98,7 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gasbarSpeed = gas.speed;
 
         if (canMove)
         {

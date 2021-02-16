@@ -11,6 +11,7 @@ public class LoadingHippo : MonoBehaviour
 
     public void Start()
     {
+        PlayerPrefs.SetInt("Sounds", 0);
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 

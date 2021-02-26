@@ -15,6 +15,9 @@ public class playerController : MonoBehaviour
     public static float gasbarSpeed;
     public float desplazamientoRecolocacion;
 
+    float smoothTime = 0.01f;
+    private Vector3 velocity = Vector3.zero;
+
     public GameObject player;
     private Vector3 position;
     public float distanciaLados;
@@ -97,6 +100,7 @@ public class playerController : MonoBehaviour
     }
 
 
+
     // Update is called once per frame
     void Update()
     {
@@ -110,18 +114,24 @@ public class playerController : MonoBehaviour
         if (keyHit)
         {
             empiezaGas = true;
-            player.transform.position = Vector3.Lerp(player.transform.position, position, 0.1f);
+
+            // Define a target position above and behind the target transform
+
+            // Smoothly move the camera towards that target position
+            transform.position = Vector3.SmoothDamp(transform.position, position, ref velocity, smoothTime);
+
+            //player.transform.position = Vector3.Lerp(player.transform.position, position, 0.5f);
             if(player.transform.position == position)
             {
                 keyHit = false;
 
-
-                /*if(onPlattform == false)
+                /*
+                if(onPlattform == false)
                 {
                     caida = true;
                 }*/
             }
-            
+
         }
 
         if (propulsado)
@@ -283,6 +293,8 @@ public class playerController : MonoBehaviour
         propulsar();
         elevar();
         contaminar();*/
+
+        
 
         if (caida)
         {

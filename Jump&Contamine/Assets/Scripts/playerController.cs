@@ -15,7 +15,7 @@ public class playerController : MonoBehaviour
     public static float gasbarSpeed;
     public float desplazamientoRecolocacion;
 
-    float smoothTime = 0.01f;
+    float smoothTime = 0.1f;// Jon lo tenía a 0.01. Controla el tiempo que tarda en llegar a otra plataforma
     private Vector3 velocity = Vector3.zero;
 
     public GameObject player;
@@ -442,7 +442,7 @@ public class playerController : MonoBehaviour
             
         }
 
-        if (collider.gameObject.tag == "Globo" && !elevado && !impulsoContaminante)//El tag es jetpack y no globo porque decidimos que sus funciones se iban a intercambiar
+        if (collider.gameObject.tag == "Globo" && !elevado && !propulsado && !impulsoContaminante)//El tag es jetpack y no globo porque decidimos que sus funciones se iban a intercambiar
         {
             if (!jetpack)
             {
@@ -455,7 +455,7 @@ public class playerController : MonoBehaviour
 
         }
 
-        if (collider.gameObject.tag == "Jetpack" && !propulsado && !impulsoContaminante)
+        if (collider.gameObject.tag == "Jetpack" && !propulsado && !elevado && !impulsoContaminante)
         {
             if (!globo)
             {

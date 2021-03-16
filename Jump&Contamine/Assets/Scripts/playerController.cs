@@ -11,7 +11,6 @@ public class playerController : MonoBehaviour
     public GameObject SalvavidasUI, JetpackUI;
     public bool llegada;
     float fallo;
-    public static bool empiezaGas;
     public static float gasbarSpeed;
     public float desplazamientoRecolocacion;
 
@@ -37,7 +36,7 @@ public class playerController : MonoBehaviour
 
     public bool impulsoContaminante;
     public bool jetpack;
-    
+
     private Animator myAnimator;
 
     private bool muerto;
@@ -52,7 +51,6 @@ public class playerController : MonoBehaviour
     {
         llegada = false;
         fallo = 0f;
-        empiezaGas = false;
         position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         myAnimator = GetComponent<Animator>();
         muerto = false;
@@ -113,7 +111,7 @@ public class playerController : MonoBehaviour
 
         if (keyHit)
         {
-            empiezaGas = true;
+            gas.empiezaGas = true;
 
             // Define a target position above and behind the target transform
 
@@ -121,7 +119,7 @@ public class playerController : MonoBehaviour
             transform.position = Vector3.SmoothDamp(transform.position, position, ref velocity, smoothTime);
 
             //player.transform.position = Vector3.Lerp(player.transform.position, position, 0.5f);
-            if(player.transform.position == position)
+            if (player.transform.position == position)
             {
                 keyHit = false;
 
@@ -155,7 +153,7 @@ public class playerController : MonoBehaviour
                 elevado = false;
                 timer = 0f;
                 caida = true;
-               
+
             }
         }
 
@@ -181,7 +179,7 @@ public class playerController : MonoBehaviour
                     gas.speed = 10f;
                 }*/
                 gas.contamine4();
-                
+
             }
         }
 
@@ -283,7 +281,7 @@ public class playerController : MonoBehaviour
         }
         */
 
-        
+
 
     }
 
@@ -294,7 +292,7 @@ public class playerController : MonoBehaviour
         elevar();
         contaminar();*/
 
-        
+
 
         if (caida)
         {
@@ -322,7 +320,7 @@ public class playerController : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collider)
     {
-        if((collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable" || collider.gameObject.tag == "ConPlataforma") && !elevado)
+        if ((collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable" || collider.gameObject.tag == "ConPlataforma") && !elevado)
         {
             onPlattform = true;
 
@@ -363,7 +361,7 @@ public class playerController : MonoBehaviour
         if ((collider.gameObject.tag == "Plataforma" || collider.gameObject.tag == "Reciclable" || collider.gameObject.tag == "ConPlataforma" || collider.gameObject.tag == "Contaminante") && caida)
         {
             transform.position = new Vector3(collider.gameObject.transform.position.x + desplazamientoRecolocacion, collider.gameObject.transform.position.y + 1f, transform.position.z);
-            caida = false;    
+            caida = false;
         }
 
         if (collider.gameObject.tag == "ConPlataforma" && !caida && !propulsado && !elevado && !impulsoContaminante)
@@ -439,7 +437,7 @@ public class playerController : MonoBehaviour
                 caida = true;
                 keyHit = false;
             }
-            
+
         }
 
         if (collider.gameObject.tag == "Globo" && !elevado && !propulsado && !impulsoContaminante)//El tag es jetpack y no globo porque decidimos que sus funciones se iban a intercambiar
@@ -497,12 +495,12 @@ public class playerController : MonoBehaviour
                 canMove = false;
                 soundManager.PlaySound("muerte");
                 Debug.Log("Muerto");
-                myAnimator.SetBool("dead",true);
+                myAnimator.SetBool("dead", true);
                 muerto = true;
                 gas.speed = 3f;
-                
+
             }
-            
+
         }
     }
 

@@ -17,6 +17,8 @@ public class GasMovement2 : MonoBehaviour
 
     private float normalSpeed;
 
+    public bool empiezaGas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class GasMovement2 : MonoBehaviour
         timer = 0f;
         contamineSpeed = 9f;
         recycleSpeed = 4.5f;
+        empiezaGas = false;
 
     }
 
@@ -67,7 +70,7 @@ public class GasMovement2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (playerController.empiezaGas)
+        if (empiezaGas)
         {
             transform.Translate(move * speed * Time.deltaTime);
         }

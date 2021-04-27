@@ -18,6 +18,8 @@ public class GasMovement2 : MonoBehaviour
     private float normalSpeed;
 
     public bool empiezaGas;
+    private bool contadorTerminado;
+    private float timerGas;
 
     // Start is called before the first frame update
     void Start()
@@ -66,11 +68,22 @@ public class GasMovement2 : MonoBehaviour
                 timer = 0f;
             }
         }
+
+        if (empiezaGas)
+        {
+            timerGas += Time.deltaTime;
+            if(timerGas >= 7f)
+            {
+                timerGas = 0;
+                empiezaGas = false;
+                contadorTerminado = true;
+            }
+        }
     }
 
     private void FixedUpdate()
     {
-        if (empiezaGas)
+        if (contadorTerminado)
         {
             transform.Translate(move * speed * Time.deltaTime);
         }

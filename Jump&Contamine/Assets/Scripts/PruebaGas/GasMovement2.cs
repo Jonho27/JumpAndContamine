@@ -24,11 +24,11 @@ public class GasMovement2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        normalSpeed = 6.5f;
+        normalSpeed = 5.5f;
         speed = normalSpeed;
         timer = 0f;
         contamineSpeed = 9f;
-        recycleSpeed = 4.5f;
+        recycleSpeed = 4f;
         empiezaGas = false;
 
     }

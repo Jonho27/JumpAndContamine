@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\DeathTextManager.cs" />
     <Compile Include="Assets\Scripts\UI\LevelLoader.cs" />
     <Compile Include="Assets\Scripts\CanvasController.cs" />
+    <Compile Include="Assets\Scripts\player\tactilPlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
